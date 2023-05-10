@@ -61,10 +61,10 @@ const Navbar = () => {
           <Link href="/">
             <Box css={{ width: 34, cursor: 'pointer' }}>
               <Image
-                src="/reservoirLogo.svg"
+                src="/plusoneLogo.svg"
                 width={34}
                 height={39}
-                alt="Reservoir"
+                alt="Plusone"
               />
             </Box>
           </Link>
