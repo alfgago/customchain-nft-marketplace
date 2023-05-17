@@ -346,7 +346,7 @@ const TokenTableRow: FC<TokenTableRowProps> = ({
   return (
     <TableRow
       key={token?.token?.tokenId}
-      css={{ gridTemplateColumns: desktopTemplateColumns }}
+      css={{ gridTemplateColumns: desktopTemplateColumns, height: '150px'}}
     >
       <TableCell css={{ minWidth: 0, overflow: 'hidden' }}>
         <Flex align="center" css={{ gap: '$3' }}>

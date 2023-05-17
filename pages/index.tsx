@@ -19,6 +19,8 @@ import CollectionsTimeDropdown, {
 import { Head } from 'components/Head'
 import { CollectionRankingsTable } from 'components/rankings/CollectionRankingsTable'
 import { ChainContext } from 'context/ChainContextProvider'
+import { Filters } from 'components/filters/Filters'
+import SimpleHeader from 'components/common/SimpleHeader'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -70,6 +72,21 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
   return (
     <Layout>
       <Head />
+      {isDisconnected && (
+          <SimpleHeader textAlign="left">
+            <Flex
+            direction="column"
+            align="start"
+            css={{ maxWidth: 728, p: '$6 0 $3 $space$6' }}
+          >
+            <Text style="h3" css={{ mb: 24, width:'100%', fontFamily: 'Trap', fontStyle: 'normal',fontWeight: 700, fontSize: '64px',lineHeight: '70px',  color:'white' }}>Marketplace
+            </Text>
+            <Text style="body1" css={{ mb: 48, width:'50%',  fontFamily: 'Trap', fontStyle: 'normal',fontWeight: 600, fontSize: '32px',lineHeight: '35px', color:'white' }}>
+            Buy, sell, and win guest  list access from your favorite artists
+            </Text>
+          </Flex>
+          </SimpleHeader>
+        )}
       <Box
         css={{
           p: 24,
@@ -79,29 +96,22 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           },
         }}
       >
-        {isDisconnected && (
-          <Flex
+        {/*isDisconnected && (
+          /*<Flex
             direction="column"
-            align="center"
-            css={{ mx: 'auto', maxWidth: 728, pt: '$5', textAlign: 'center' }}
+            align="start"
+            css={{ maxWidth: 728, pt: '$5' }}
           >
-            <Text style="h3" css={{ mb: 24 }}>
-              Open Source Marketplace
+            <Text style="h3" css={{ mb: 24, width:'100%', fontFamily: 'Trap', fontStyle: 'normal',fontWeight: 700, fontSize: '64px',lineHeight: '70px' }}>Marketplace
             </Text>
-            <Text style="body1" css={{ mb: 48 }}>
-              Reservoir Marketplace is an open-source project that showcases the
-              latest and greatest features of the Reservoir Platform.
+            <Text style="body1" css={{ mb: 48, width:'50%',  fontFamily: 'Trap', fontStyle: 'normal',fontWeight: 600, fontSize: '32px',lineHeight: '35px' }}>
+            Buy, sell, and win guest  list access from your favorite artists
             </Text>
-            <a
-              href="https://github.com/reservoirprotocol/marketplace-v2"
-              target="_blank"
-            >
-              <Button color="gray3">View Source Code</Button>
-            </a>
           </Flex>
-        )}
-        <Flex css={{ my: '$6', gap: 65 }} direction="column">
-          <Flex
+        )*/}
+        <Filters/>
+       <Flex css={{ my: '$6', gap: 65 }} direction="column">
+          {/* <Flex
             justify="between"
             align="start"
             css={{
@@ -116,6 +126,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
             <Text style="h4" as="h4">
               Popular Collections
             </Text>
+            
             <Flex align="center" css={{ gap: '$4' }}>
               <CollectionsTimeDropdown
                 compact={compactToggleNames && isMounted}
@@ -126,7 +137,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               />
               <ChainToggle />
             </Flex>
-          </Flex>
+              </Flex>*/}
           {isSSR || !isMounted ? null : (
             <CollectionRankingsTable
               collections={collections}
@@ -134,6 +145,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               volumeKey={volumeKey}
             />
           )}
+          
           <Box css={{ alignSelf: 'center' }}>
             <Link href="/collection-rankings">
               <Button
@@ -148,8 +160,8 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
             </Link>
           </Box>
         </Flex>
-        <Footer />
       </Box>
+      <Footer />
     </Layout>
   )
 }

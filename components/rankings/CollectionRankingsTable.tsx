@@ -172,6 +172,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
         key={collection.id}
         css={{
           gridTemplateColumns: desktopTemplateColumns,
+          height: '150px' 
         }}
       >
         <TableCell css={{ minWidth: 0 }}>
@@ -301,7 +302,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
   }
 }
 
-const headings = ['Collection', '', 'Volume', 'Floor Price', 'Top Offer']
+const headings = ['Artist', 'Collection', 'Volume', 'Floor Price', 'Top Offer']
 
 const TableHeading = () => (
   <HeaderRow

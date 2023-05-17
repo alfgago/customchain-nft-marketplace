@@ -101,14 +101,14 @@ const Navbar = () => {
             <Box css={{ width: 112, cursor: 'pointer' }}>
               {theme == 'dark' ? (
                 <Image
-                  src="/reservoirMarketLogo.svg"
+                  src="/plusoneLogo.svg"
                   width={112}
                   height={36}
                   alt="Reservoir"
                 />
               ) : (
                 <Image
-                  src="/reservoirMarketLogoLight.svg"
+                  src="/plusoneLogo.svg"
                   width={112}
                   height={36}
                   alt="Reservoir"
