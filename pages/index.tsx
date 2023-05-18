@@ -21,6 +21,7 @@ import { CollectionRankingsTable } from 'components/rankings/CollectionRankingsT
 import { ChainContext } from 'context/ChainContextProvider'
 import { Filters } from 'components/filters/Filters'
 import SimpleHeader from 'components/common/SimpleHeader'
+import { IndexStyles } from './indexStyles'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -73,20 +74,59 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
     <Layout>
       <Head />
       {isDisconnected && (
-          <SimpleHeader textAlign="left">
-            <Flex
+        <SimpleHeader textAlign="left">
+          <Flex
             direction="column"
             align="start"
-            css={{ maxWidth: 728, p: '$6 0 $3 $space$6' }}
+            css={{ maxWidth: 728, p: '90px 65px' }}
           >
-            <Text style="h3" css={{ mb: 24, width:'100%', fontFamily: 'Trap', fontStyle: 'normal',fontWeight: 700, fontSize: '64px',lineHeight: '70px',  color:'white' }}>Marketplace
+            <Text
+              style="h3"
+              css={{
+                mb: 24,
+                width: '100%',
+                fontFamily: 'Trap',
+                fontStyle: 'normal',
+                fontWeight: 700,
+                fontSize: '64px',
+                lineHeight: '70px',
+                color: 'white',
+              }}
+            >
+              Marketplace
             </Text>
-            <Text style="body1" css={{ mb: 48, width:'50%',  fontFamily: 'Trap', fontStyle: 'normal',fontWeight: 600, fontSize: '32px',lineHeight: '35px', color:'white' }}>
-            Buy, sell, and win guest  list access from your favorite artists
+            <Text
+              style="body1"
+              css={{
+                mb: 48,
+                width: '50%',
+                fontFamily: 'Trap',
+                fontStyle: 'normal',
+                fontWeight: 600,
+                fontSize: '32px',
+                lineHeight: '35px',
+                color: 'white',
+              }}
+            >
+              Buy, sell, and win guest list access from your favorite artists
             </Text>
           </Flex>
-          </SimpleHeader>
-        )}
+        </SimpleHeader>
+      )}
+       <IndexStyles>
+      <div className='wrapper'>
+          <section className="top-triangle">
+            <div className="content-triangle">
+              <div className="triangle-container">
+                <span className="img-span">
+                  <img src="/top-triangle-solo.png" alt="border-top" />
+                </span>
+              </div>
+            </div>
+          </section>
+        <Filters />
+      </div>
+      </IndexStyles>
       <Box
         css={{
           p: 24,
@@ -109,8 +149,8 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
             </Text>
           </Flex>
         )*/}
-        <Filters/>
-       <Flex css={{ my: '$6', gap: 65 }} direction="column">
+
+        <Flex css={{ my: '$6', gap: 65 }} direction="column">
           {/* <Flex
             justify="between"
             align="start"
@@ -145,7 +185,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               volumeKey={volumeKey}
             />
           )}
-          
+
           <Box css={{ alignSelf: 'center' }}>
             <Link href="/collection-rankings">
               <Button
@@ -161,6 +201,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           </Box>
         </Flex>
       </Box>
+      
       <Footer />
     </Layout>
   )

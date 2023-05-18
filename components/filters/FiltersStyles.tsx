@@ -5,9 +5,10 @@ import { DEVICE, COLORS } from "utils/variables"
 export const FiltersStyles = styled.section`
 
   .filter-section {
+    padding-right:64px;
     .abs {
       position: relative;
-      margin-top: -3.5rem;
+      margin-top: -5.5rem;
       width: 100%;
     }
 
@@ -31,9 +32,6 @@ export const FiltersStyles = styled.section`
         margin-left: auto;
         margin-bottom: 0;
       }
-    }
-    @media ${DEVICE.laptop} {
-      padding: 0;
     }
   }
 
