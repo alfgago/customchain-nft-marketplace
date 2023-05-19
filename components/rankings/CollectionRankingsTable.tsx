@@ -25,7 +25,7 @@ type Props = {
   volumeKey: '1day' | '7day' | '30day' | 'allTime'
 }
 
-const desktopTemplateColumns = '1.5fr 1.7fr repeat(3, 0.6fr)'
+const desktopTemplateColumns = '1.5fr 1.95fr repeat(3, 0.4fr)'
 
 export const CollectionRankingsTable: FC<Props> = ({
   collections,
@@ -172,7 +172,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
         key={collection.id}
         css={{
           gridTemplateColumns: desktopTemplateColumns,
-          height: '150px' 
+          height: '230px' 
         }}
       >
         <TableCell css={{ minWidth: 0 }}>
@@ -197,13 +197,13 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
                 src={collection.image as string}
                 css={{
                   borderRadius: 8,
-                  width: 56,
-                  height: 56,
+                  width: 146,
+                  height: 146,
                   objectFit: 'cover',
                 }}
                 alt="Collection Image"
-                width={56}
-                height={56}
+                width={146}
+                height={146}
                 unoptimized
               />
 
@@ -239,8 +239,8 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
                   src={image}
                   style={{
                     borderRadius: 8,
-                    width: 56,
-                    height: 56,
+                    width: 87.43,
+                    height: 92,
                     objectFit: 'cover',
                   }}
                   onError={(
@@ -318,7 +318,7 @@ const TableHeading = () => (
   >
     {headings.map((heading) => (
       <TableCell key={heading}>
-        <Text style="subtitle3" color="subtle">
+        <Text style="headerColumn">
           {heading}
         </Text>
       </TableCell>

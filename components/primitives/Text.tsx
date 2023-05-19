@@ -39,6 +39,15 @@ export default styled('span', {
         fontWeight: 500,
         fontSize: 12,
       },
+      headerColumn:{
+        fontFamily: 'Trap',
+        fontStyle: 'normal',
+        fontWeight: 700,
+        fontSize: 20,
+        display: 'flex',
+        alignItems: 'center',
+        color: '#000000',
+      },
       body1: {
         fontWeight: 400,
         fontSize: 16,

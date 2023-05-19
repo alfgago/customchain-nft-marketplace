@@ -150,7 +150,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           </Flex>
         )*/}
 
-        <Flex css={{ my: '$6', gap: 65 }} direction="column">
+        <Flex css={{ gap: 65 }} direction="column">
           {/* <Flex
             justify="between"
             align="start"
