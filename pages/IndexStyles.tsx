@@ -74,4 +74,5 @@ export const IndexStyles = styled.div`
       align-items: center;
     }
   }
+
 `

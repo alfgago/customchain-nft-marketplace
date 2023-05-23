@@ -22,6 +22,7 @@ import { ChainContext } from 'context/ChainContextProvider'
 import { Filters } from 'components/filters/Filters'
 import SimpleHeader from 'components/common/SimpleHeader'
 import { IndexStyles } from './indexStyles'
+import Navbar from 'components/navbar'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -72,13 +73,15 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
 
   return (
     <Layout>
+      <Navbar />
       <Head />
       {isDisconnected && (
+        <div>
         <SimpleHeader textAlign="left">
           <Flex
             direction="column"
             align="start"
-            css={{ maxWidth: 728, p: '90px 65px' }}
+            css={{ maxWidth: 728, p: '90px 64px' }}
           >
             <Text
               style="h3"
@@ -111,7 +114,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               Buy, sell, and win guest list access from your favorite artists
             </Text>
           </Flex>
-        </SimpleHeader>
+        </SimpleHeader></div>
       )}
        <IndexStyles>
       <div className='wrapper'>

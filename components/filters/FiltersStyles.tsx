@@ -6,6 +6,7 @@ export const FiltersStyles = styled.section`
 
   .filter-section {
     padding-right:64px;
+    padding-left:64px;
     .abs {
       position: relative;
       margin-top: -5.5rem;

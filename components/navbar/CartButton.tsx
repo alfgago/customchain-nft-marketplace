@@ -14,7 +14,7 @@ const CartButton = () => {
         openConnectModal?.()
       }}
       trigger={
-        <Button
+       /* <Button
           css={{
             justifyContent: 'center',
             width: '44px',
@@ -23,8 +23,9 @@ const CartButton = () => {
           }}
           size="small"
           color="gray3"
-        >
-          <FontAwesomeIcon icon={faShoppingCart} width="16" height="16" />
+        >*/
+        <div>
+          <FontAwesomeIcon icon={faShoppingCart} style={{width:"27.08px",height:"30.08px", color:'#FFFFFF' }}  />
           {cartItems.length > 0 && (
             <Flex
               align="center"
@@ -44,7 +45,8 @@ const CartButton = () => {
               </Text>
             </Flex>
           )}
-        </Button>
+          </div>
+       // </Button>
       }
     />
   )

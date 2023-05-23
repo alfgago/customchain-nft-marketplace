@@ -31,6 +31,7 @@ import { SearchCollection } from 'pages/api/globalSearch'
 import { formatNumber } from 'utils/numbers'
 import { useTheme } from 'next-themes'
 import Img from 'components/primitives/Img'
+import { GlobalSearchStyles } from './GlobalSearchStyles'
 
 type Props = {
   collection: SearchCollection
@@ -196,6 +197,7 @@ const GlobalSearch = forwardRef<
   const isMobile = useMediaQuery({ query: '(max-width: 960px)' })
 
   useEffect(() => {
+    console.log(debouncedSearch)
     const getSearchResults = async () => {
       setSearching(true)
       let res = await fetch(`/api/globalSearch?query=${debouncedSearch}`).then(
@@ -253,6 +255,7 @@ const GlobalSearch = forwardRef<
   }, [recentResults])
 
   return (
+    <GlobalSearchStyles>
     <Box
       onClick={(e) => {
         e.stopPropagation()
@@ -265,13 +268,13 @@ const GlobalSearch = forwardRef<
           css={{
             position: 'absolute',
             top: '50%',
-            left: '$4',
+            right: '$4',
             zIndex: 2,
             transform: 'translate(0, -50%)',
             color: '$gray11',
           }}
         >
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+         { <FontAwesomeIcon icon={faMagnifyingGlass} className="icon"/>}
         </Box>
       )}
 
@@ -306,7 +309,7 @@ const GlobalSearch = forwardRef<
             transform: 'translate(0, -50%)',
           }}
         >
-          <Text
+          {/*<Text
             css={{
               color: '$gray9',
               display: 'none',
@@ -314,7 +317,7 @@ const GlobalSearch = forwardRef<
             }}
           >
             ⌘K
-          </Text>
+          </Text>*/}
         </Box>
       )}
       <Input
@@ -390,6 +393,7 @@ const GlobalSearch = forwardRef<
           </Box>
         )}
     </Box>
+    </GlobalSearchStyles>
   )
 })
 
