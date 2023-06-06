@@ -1,12 +1,12 @@
-import GradientBackground from "../GradientBackground/GradientBackground"
+import GradientBackground from '../GradientBackground/GradientBackground'
 
-import { SimpleHeaderStyles } from "./SimpleHeaderStyles"
+import { SimpleHeaderStyles } from './SimpleHeaderStyles'
 
 const SimpleHeader = ({
   title,
-  textAlign = "center",
-  backgroundColor = "#000",
-  textColor = "#fff",
+  textAlign = 'center',
+  backgroundColor = '#000',
+  textColor = '#fff',
   gradient = true,
   children,
 }: any) => {

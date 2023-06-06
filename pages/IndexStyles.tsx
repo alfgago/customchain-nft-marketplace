@@ -74,5 +74,9 @@ export const IndexStyles = styled.div`
       align-items: center;
     }
   }
+  .text-wrapper {
+    max-width: 728px;
+    padding: 90px 64px;
+  }
 
 `

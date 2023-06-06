@@ -81,7 +81,9 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           <Flex
             direction="column"
             align="start"
-            css={{ maxWidth: 728, p: '90px 64px' }}
+            css={{ maxWidth: 728, p: '90px 110px', "@media (max-width: 1080px)": {
+              p: '90px 24px'
+            }, }}
           >
             <Text
               style="h3"
@@ -135,7 +137,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           p: 24,
           height: '100%',
           '@bp800': {
-            p: '$6',
+            p: '64px 110px',
           },
         }}
       >
