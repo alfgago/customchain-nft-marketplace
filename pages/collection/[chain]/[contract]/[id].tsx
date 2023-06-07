@@ -64,6 +64,10 @@ import { useAccount } from 'wagmi'
 import { Head } from 'components/Head'
 import { OffersTable } from 'components/token/OffersTable'
 import { ListingsTable } from 'components/token/ListingsTable'
+import Navbar from 'components/navbar'
+import SimpleHeader from 'components/common/SimpleHeader'
+import GradientSection from 'components/common/GradientSection'
+import { Footer } from 'components/home/Footer'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -233,25 +237,25 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
 
   return (
     <Layout>
+      <Navbar />
       <Head
         ogImage={token?.token?.image || collection?.banner}
         title={pageTitle}
         description={collection?.description as string}
       />
-      <Flex
-        justify="center"
+        
+       <GradientSection>
+       <Flex
         css={{
           maxWidth: 1175,
-          mt: 10,
+          pt: 140,
           pb: 100,
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          px: '$1',
+          marginLeft: 110,
+          marginRight: 110,
           gap: 20,
           flexDirection: 'column',
-          alignItems: 'center',
+          // alignItems: 'center',
           '@md': {
-            mt: 48,
             px: '$3',
             flexDirection: 'row',
             gap: 40,
@@ -268,7 +272,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
             maxWidth: '100%',
             flex: 1,
             width: '100%',
-            '@md': { maxWidth: 445 },
+            '@md': { maxWidth: 402},
             position: 'relative',
             '@sm': {
               '>button': {
@@ -321,7 +325,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
             <FullscreenMedia token={token} />
           </Box>
 
-          {token?.token?.attributes && !isSmallDevice && (
+          {/* token?.token?.attributes && !isSmallDevice && (
             <Grid
               css={{
                 maxWidth: '100%',
@@ -340,8 +344,9 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                 />
               ))}
             </Grid>
-          )}
+              )*/}
         </Flex>
+
         <Flex
           direction="column"
           css={{
@@ -505,6 +510,51 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                 collectionAttributes={attributesData?.data}
               />
               <PriceData token={token} />
+            </>
+          )}
+        </Flex>
+        </Flex>
+       </GradientSection>
+      <Flex
+        css={{
+          maxWidth: 1175,
+          pb: 100,
+          marginLeft: 110,
+          marginRight: 110,
+          gap: 20,
+          flexDirection: 'column',
+          alignItems: 'center',
+          zIndex: 12,
+          position: 'relative',
+          '@md': {
+            mt: 48,
+            px: '$3',
+            flexDirection: 'row',
+            gap: 40,
+            alignItems: 'flex-start',
+          },
+          '@lg': {
+            gap: 80,
+          },
+        }}
+      >
+         <Flex
+          direction="column"
+          css={{
+            flex: 1,
+            px: '$3',
+            width: '100%',
+            '@md': {
+              px: 0,
+              maxWidth: '60%',
+              overflow: 'hidden',
+            },
+          }}
+        >
+          
+
+          {token && (
+            <>
               {isMounted && (
                 <TokenActions
                   token={token}
@@ -611,6 +661,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
           )}
         </Flex>
       </Flex>
+      <Footer />
     </Layout>
   )
 }

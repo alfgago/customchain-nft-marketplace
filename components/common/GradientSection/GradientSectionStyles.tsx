@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 import { DEVICE, COLORS } from "utils/variables"
 
-export const IndexStyles = styled.div`
+export const GradientSectionStyles = styled.div`
 .wrapper {
     position:relative;
     margin-top: -4.5rem;

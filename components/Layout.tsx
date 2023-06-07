@@ -14,7 +14,6 @@ const Layout: FC<Props> = ({ children }) => {
           background: '$neutralBg',
           height: '100%',
           minHeight: '100vh',
-          pt: 80,
         }}
       >
         <Box css={{ maxWidth: 1920, mx: 'auto' }}>

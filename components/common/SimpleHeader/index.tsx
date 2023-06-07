@@ -1,4 +1,4 @@
-import GradientBackground from '../GradientBackground/GradientBackground'
+import GradientBackground from '../GradientBackground/index'
 
 import { SimpleHeaderStyles } from './SimpleHeaderStyles'
 

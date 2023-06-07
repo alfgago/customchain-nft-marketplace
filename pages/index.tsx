@@ -21,8 +21,8 @@ import { CollectionRankingsTable } from 'components/rankings/CollectionRankingsT
 import { ChainContext } from 'context/ChainContextProvider'
 import { Filters } from 'components/filters/Filters'
 import SimpleHeader from 'components/common/SimpleHeader'
-import { IndexStyles } from './indexStyles'
 import Navbar from 'components/navbar'
+import GradientSection from 'components/common/GradientSection'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -76,8 +76,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
       <Navbar />
       <Head />
       {isDisconnected && (
-        <div>
-        <SimpleHeader textAlign="left">
+        <GradientSection>
           <Flex
             direction="column"
             align="start"
@@ -89,6 +88,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               style="h3"
               css={{
                 mb: 24,
+                mt: 44,
                 width: '100%',
                 fontFamily: 'Trap',
                 fontStyle: 'normal',
@@ -116,25 +116,13 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               Buy, sell, and win guest list access from your favorite artists
             </Text>
           </Flex>
-        </SimpleHeader></div>
+        </GradientSection>
       )}
-       <IndexStyles>
-      <div className='wrapper'>
-          <section className="top-triangle">
-            <div className="content-triangle">
-              <div className="triangle-container">
-                <span className="img-span">
-                  <img src="/top-triangle-solo.png" alt="border-top" />
-                </span>
-              </div>
-            </div>
-          </section>
-        <Filters />
-      </div>
-      </IndexStyles>
       <Box
         css={{
           p: 24,
+          zIndex: 12,
+          position: 'relative',
           height: '100%',
           '@bp800': {
             p: '64px 110px',
@@ -206,7 +194,6 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           </Box>
         </Flex>
       </Box>
-      
       <Footer />
     </Layout>
   )
