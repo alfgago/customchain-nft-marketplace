@@ -53,6 +53,8 @@ import titleCase from 'utils/titleCase'
 import Link from 'next/link'
 import Img from 'components/primitives/Img'
 import Sweep from 'components/buttons/Sweep'
+import { Footer } from 'components/home/Footer'
+import GradientSection from 'components/common/GradientSection'
 
 type ActivityTypes = Exclude<
   NonNullable<
@@ -193,13 +195,18 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
         description={ssr?.collection?.collections?.[0]?.description as string}
       />
 
-      {collection ? (
+    <GradientSection>
+
+    {collection ? (
         <Flex
           direction="column"
           css={{
-            px: '$4',
-            pt: '$5',
-            pb: 0,
+            maxWidth: 1175,
+            pt: 140,
+            pb: 140,
+            marginLeft: 110,
+            marginRight: 110,
+            position: 'relative',
             '@sm': {
               px: '$5',
             },
@@ -213,8 +220,8 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                   width={64}
                   height={64}
                   style={{
-                    width: 64,
-                    height: 64,
+                    width: 239,
+                    height: 239,
                     borderRadius: 8,
                     objectFit: 'cover',
                   }}
@@ -287,7 +294,7 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                 </Box>
               </Flex>
             </Flex>
-            <CollectionActions collection={collection} />
+           {/* <CollectionActions collection={collection} />*/}
           </Flex>
           {smallSubtitle && (
             <Grid
@@ -336,7 +343,24 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
               </Flex>
             </Grid>
           )}
-          <StatHeader collection={collection} />
+          {/* <StatHeader collection={collection} />*/}
+          
+        </Flex>
+      ) : (
+        <Box />
+      )}
+    </GradientSection>
+
+      {collection ? (
+        <Flex
+          direction="column"
+          css={{
+            marginLeft: 110,
+            marginRight: 110,
+            zIndex: 12,
+            position: 'relative',
+          }}
+        >
           <Tabs.Root
             defaultValue="items"
             onValueChange={(value) => {
@@ -567,6 +591,7 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
       ) : (
         <Box />
       )}
+      <Footer />
     </Layout>
   )
 }

@@ -247,7 +247,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
        <GradientSection>
        <Flex
         css={{
-          maxWidth: 1175,
+          //maxWidth: 1175,
           pt: 140,
           pb: 100,
           marginLeft: 110,
@@ -302,6 +302,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                 opacity: 1,
                 transition: 'opacity .3s',
               },
+              
             }}
           >
             <TokenMedia

@@ -6,7 +6,7 @@ export const COLORS = {
   
   export const SIZE = {
     mobile: "375",
-    laptop: "1080",
+    laptop: "960",
     desktop: "1600",
   }
   
