@@ -63,7 +63,7 @@ export default styled('span', {
     },
     color: {
       subtle: {
-        color: '$gray11',
+        color: '#ffff',
       },
       error: {
         color: '$red11',

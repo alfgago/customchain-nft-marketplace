@@ -79,4 +79,9 @@ export const GradientSectionStyles = styled.div`
     padding: 90px 64px;
   }
 
+  .children-wrapper {
+    margin-left: 110px;
+    margin-right: 110px;
+  }
+
 `

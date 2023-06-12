@@ -2,6 +2,7 @@ import { Box, Flex } from "components/primitives"
 import SimpleHeader from "../SimpleHeader"
 import { FC, ReactNode } from 'react'
 import { GradientSectionStyles } from "./GradientSectionStyles"
+import { Filters } from "components/filters/Filters"
 
 type Props = {
     children: ReactNode
@@ -10,11 +11,6 @@ type Props = {
 const GradientSection: FC<Props> = ({ children }) => {
 
 return (
-    <div>
-    <div>
-    <SimpleHeader textAlign="left">
-    {children}
-    </SimpleHeader></div>
    <GradientSectionStyles>
   <div className='wrapper'>
       <section className="top-triangle">
@@ -26,9 +22,11 @@ return (
           </div>
         </div>
       </section>
+      <div className="children-wrapper">
+     {children}
+     </div>
   </div>
   </GradientSectionStyles>
-  </div>
 )
           }
 export default GradientSection

@@ -76,7 +76,8 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
       <Navbar />
       <Head />
       {isDisconnected && (
-        <GradientSection>
+        <div>
+            <SimpleHeader textAlign="left">
           <Flex
             direction="column"
             align="start"
@@ -116,7 +117,11 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               Buy, sell, and win guest list access from your favorite artists
             </Text>
           </Flex>
+        </SimpleHeader>
+        <GradientSection>
+          <Filters/>
         </GradientSection>
+        </div>
       )}
       <Box
         css={{

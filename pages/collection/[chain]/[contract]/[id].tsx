@@ -243,8 +243,8 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
         title={pageTitle}
         description={collection?.description as string}
       />
-        
-       <GradientSection>
+              <div>
+            <SimpleHeader textAlign="left">
        <Flex
         css={{
           //maxWidth: 1175,
@@ -354,6 +354,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
             flex: 1,
             px: '$3',
             width: '100%',
+            position:'relative',
             '@md': {
               px: 0,
               maxWidth: '60%',
@@ -368,11 +369,12 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                 legacyBehavior={true}
               >
                 <Anchor
-                  color="primary"
+                  //color="primary"
                   css={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '$2',
+                    color:'#ffff' 
                   }}
                 >
                   <FontAwesomeIcon icon={faArrowLeft} height={16} />
@@ -387,7 +389,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                 }
               />
             </Flex>
-            <Button
+           {/* <Button
               onClick={(e) => {
                 if (isRefreshing) {
                   e.preventDefault()
@@ -447,10 +449,10 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
               >
                 <FontAwesomeIcon icon={faRefresh} width={16} height={16} />
               </Box>
-            </Button>
+            </Button>*/}
           </Flex>
           <Flex align="center" css={{ gap: '$2' }}>
-            <Text style="h4" css={{ wordBreak: 'break-all' }}>
+            <Text style="h4" css={{ wordBreak: 'break-all', color:'#ffff' }}>
               {tokenName}
             </Text>
             {flagged && (
@@ -461,7 +463,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                   </Text>
                 }
               >
-                <Text css={{ color: '$red10' }}>
+                <Text css={{ color: '#ffff' }}>
                   <FontAwesomeIcon
                     icon={faCircleExclamation}
                     width={16}
@@ -480,9 +482,9 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                   </Text>
                   <Link href={`/portfolio`} legacyBehavior={true}>
                     <Anchor
-                      color="primary"
+                      //color="primary"
                       weight="normal"
-                      css={{ ml: '$1', fontSize: 12 }}
+                      css={{ ml: '$1', fontSize: 12,  color:'#ffff'  }}
                     >
                       Sell
                     </Anchor>
@@ -491,7 +493,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
               )}
               {!is1155 && (
                 <Flex align="center" css={{ mt: '$2' }}>
-                  <Text style="subtitle3" color="subtle" css={{ mr: '$2' }}>
+                  <Text style="subtitle3" css={{ mr: '$2', color:'#ffff'  }}>
                     Owner
                   </Text>
                   <Jazzicon
@@ -499,7 +501,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                     seed={jsNumberForAddress(owner || '')}
                   />
                   <Link href={`/profile/${owner}`} legacyBehavior={true}>
-                    <Anchor color="primary" weight="normal" css={{ ml: '$1' }}>
+                    <Anchor weight="normal" css={{ ml: '$1', color:'#ffff' }}>
                       {isMounted ? ownerFormatted : ''}
                     </Anchor>
                   </Link>
@@ -515,7 +517,31 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
           )}
         </Flex>
         </Flex>
+        </SimpleHeader>
+       <GradientSection>
+        <>
+        {/*token && (
+            <div style={{
+              marginTop: '-70px',
+              zIndex: 9,
+              position: 'relative',
+              width: '100%'}}>
+              {isMounted && (
+                <TokenActions
+                  token={token}
+                  offer={offer}
+                  listing={listing}
+                  isOwner={isOwner}
+                  mutate={mutate}
+                  account={account}
+                />
+              )}
+              </div>
+              )
+              */}
+        </>
        </GradientSection>
+       </div>
       <Flex
         css={{
           maxWidth: 1175,
@@ -547,7 +573,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
             width: '100%',
             '@md': {
               px: 0,
-              maxWidth: '60%',
+              maxWidth: '100%',
               overflow: 'hidden',
             },
           }}
@@ -566,6 +592,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                   account={account}
                 />
               )}
+              <div style={{ maxWidth: '80%'}}>
               <Tabs.Root
                 defaultValue=""
                 value={tabValue}
@@ -658,6 +685,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                   />
                 </TabsContent>
               </Tabs.Root>
+              </div>
             </>
           )}
         </Flex>

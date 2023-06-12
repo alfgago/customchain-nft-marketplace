@@ -55,6 +55,7 @@ import Img from 'components/primitives/Img'
 import Sweep from 'components/buttons/Sweep'
 import { Footer } from 'components/home/Footer'
 import GradientSection from 'components/common/GradientSection'
+import SimpleHeader from 'components/common/SimpleHeader'
 
 type ActivityTypes = Exclude<
   NonNullable<
@@ -195,7 +196,9 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
         description={ssr?.collection?.collections?.[0]?.description as string}
       />
 
-    <GradientSection>
+<div>
+            <SimpleHeader textAlign="left">
+   
 
     {collection ? (
         <Flex
@@ -349,7 +352,71 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
       ) : (
         <Box />
       )}
-    </GradientSection>
+      </SimpleHeader>
+   <GradientSection>{/*<Flex justify="between" css={{ marginBottom: '$4',marginTop: '-60px', zIndex: 12,position: 'relative' }}>
+                    {attributes && attributes.length > 0 && !isSmallDevice && (
+                      <FilterButton
+                        open={attributeFiltersOpen}
+                        setOpen={setAttributeFiltersOpen}
+                      />
+                    )}
+                    <Flex
+                      css={{
+                        ml: 'auto',
+                        width: '100%',
+                        gap: '$2',
+                        '@md': {
+                          width: 'max-content',
+                          gap: '$3',
+                        },
+                      }}
+                    >
+                       <SortTokens
+                        css={{
+                          order: 3,
+                          px: '14px',
+                          justifyContent: 'center',
+                          '@md': {
+                            order: 1,
+                            width: '220px',
+                            minWidth: 'max-content',
+                            px: '$5',
+                          },
+                        }}
+                      />
+                      <Sweep
+                        collectionId={collection.id}
+                        buttonChildren={<FontAwesomeIcon icon={faBroom} />}
+                        buttonCss={{
+                          minWidth: 48,
+                          minHeight: 48,
+                          justifyContent: 'center',
+                          padding: 0,
+                          order: 1,
+                          '@md': {
+                            order: 2,
+                          },
+                        }}
+                        mutate={mutate}
+                      />
+                      <CollectionOffer
+                        collection={collection}
+                        buttonCss={{
+                          width: '100%',
+                          justifyContent: 'center',
+                          order: 2,
+                          '@md': {
+                            order: 3,
+                          },
+                          '@sm': {
+                            maxWidth: '220px',
+                          },
+                        }}
+                        mutate={mutate}
+                      />
+                    </Flex>
+                      </Flex>*/}</GradientSection>
+   </div>
 
       {collection ? (
         <Flex
@@ -421,11 +488,12 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                         },
                       }}
                     >
-                      <SortTokens
+                       <SortTokens
                         css={{
                           order: 3,
                           px: '14px',
                           justifyContent: 'center',
+                          borderRadius: '42px',
                           '@md': {
                             order: 1,
                             width: '220px',
@@ -454,6 +522,7 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                         buttonCss={{
                           width: '100%',
                           justifyContent: 'center',
+                          borderRadius: '42px',
                           order: 2,
                           '@md': {
                             order: 3,
