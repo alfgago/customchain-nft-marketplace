@@ -209,6 +209,8 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
             pb: 140,
             marginLeft: 110,
             marginRight: 110,
+            "@media(max-width: 960px)": {
+              margin: '0px 34px'},
             position: 'relative',
             '@sm': {
               px: '$5',
@@ -234,12 +236,13 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                   <Flex align="center" css={{ gap: '$2' }}>
                     <Text style="h5" as="h6" ellipsify>
                       {collection.name}
-                    </Text>
+                </Text>
                     <OpenSeaVerified
                       openseaVerificationStatus={
                         collection?.openseaVerificationStatus
                       }
                     />
+                    
                   </Flex>
 
                   {!smallSubtitle && (
@@ -346,7 +349,7 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
               </Flex>
             </Grid>
           )}
-          {/* <StatHeader collection={collection} />*/}
+          <StatHeader collection={collection} />
           
         </Flex>
       ) : (
@@ -424,6 +427,8 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
           css={{
             marginLeft: 110,
             marginRight: 110,
+            "@media(max-width: 960px)": {
+              margin: '0px 34px'},
             zIndex: 12,
             position: 'relative',
           }}

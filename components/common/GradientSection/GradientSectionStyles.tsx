@@ -66,7 +66,7 @@ export const GradientSectionStyles = styled.div`
     }
   }
   .content-triangle {
-    padding: 0 18rem;
+    padding: 0 15rem;
     position: relative;
     @media ${DEVICE.laptop} {
       min-height: 6rem;
@@ -80,8 +80,12 @@ export const GradientSectionStyles = styled.div`
   }
 
   .children-wrapper {
-    margin-left: 110px;
-    margin-right: 110px;
+    padding-left: 34px;
+    padding-right: 34px;
+    @media ${DEVICE.laptop} {
+        padding-left: 110px;
+        padding-right: 110px;
+      }
   }
 
 `

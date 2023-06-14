@@ -5,12 +5,6 @@ import { DEVICE, COLORS } from "utils/variables"
 export const FiltersStyles = styled.section`
 
   .filter-section {
-    padding-right:${24/16}rem;
-    padding-left:${24/16}rem;
-    @media ${DEVICE.laptop} {
-      padding-right:${110/16}rem;
-      padding-left: ${110/16}rem;
-    }
     .abs {
       position: relative;
       margin-top: -5.5rem;

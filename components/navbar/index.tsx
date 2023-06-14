@@ -168,7 +168,7 @@ const Navbar = () => {
     <Flex
       css={{
         height: NAVBAR_HEIGHT_MOBILE,
-        px: '$4',
+        px: '34px',
         width: '100%',
         zIndex: 999,
         background: color ? 'rgb(0, 0, 0)' :'transparent',
@@ -195,7 +195,7 @@ const Navbar = () => {
         </Flex>
       </Box>
       <Flex align="center" css={{ gap: '$3' }}>
-        <MobileSearch key={`${router.asPath}-search`} />
+        {/*<MobileSearch key={`${router.asPath}-search`} />*/}
         <CartButton />
         <HamburgerMenu key={`${router.asPath}-hamburger`} />
       </Flex>
@@ -204,10 +204,11 @@ const Navbar = () => {
     <Flex
       css={{
         height: NAVBAR_HEIGHT,
-        px: '$5',
+       // px: '$5',
         width: '100%',
         maxWidth: 1920,
-        mx: 'auto',
+        paddingLeft: '110px',
+        paddingRight: '110px',
         zIndex: 999,
         background: color ? 'rgb(0, 0, 0)' :'transparent',
         position: 'fixed',
@@ -251,7 +252,7 @@ const Navbar = () => {
       </Box>
 
       <Flex css={{ gap: '$3' }} justify="end" align="center">
-      <Flex align="center" css={{ gap: '$5', mr: '$5' }}>
+      <Flex align="center" css={{ gap: '$5'}}>
             <Link href="/collection-rankings">
               <NavItem active={router.pathname == '/collection-rankings'}>
                 Collections

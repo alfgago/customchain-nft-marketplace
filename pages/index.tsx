@@ -81,7 +81,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           <Flex
             direction="column"
             align="start"
-            css={{ maxWidth: 728, p: '90px 110px', "@media (max-width: 960px)": {
+            css={{ maxWidth: 728, p: '90px 110px', "@media(max-width: 960px)": {
               p: '90px 34px'
             }, }}
           >
@@ -130,8 +130,8 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           zIndex: 12,
           position: 'relative',
           height: '100%',
-          '@bp960': {
-            p: '64px 34px',
+          "@media(max-width: 960px)": {
+            p: '64px 34px'
           },
         }}
       >
