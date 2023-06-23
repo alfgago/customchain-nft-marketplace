@@ -40,8 +40,6 @@ export default styled('span', {
         fontSize: 12,
       },
       headerColumn:{
-        fontFamily: 'Trap',
-        fontStyle: 'normal',
         fontWeight: 700,
         fontSize: 20,
         display: 'flex',

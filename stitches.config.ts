@@ -120,7 +120,7 @@ export const { createTheme, keyframes, styled, globalCss, getCssText } =
       fontSizes: {},
       fontWeights: {},
       fonts: {
-        body: inter.style.fontFamily,
+        body: '"Trap"',
         button: '$body',
       },
       lineHeights: {},

@@ -91,8 +91,6 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                 mb: 24,
                 mt: 44,
                 width: '100%',
-                fontFamily: 'Trap',
-                fontStyle: 'normal',
                 fontWeight: 700,
                 fontSize: '64px',
                 lineHeight: '70px',
@@ -106,8 +104,6 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               css={{
                 mb: 48,
                 width: '50%',
-                fontFamily: 'Trap',
-                fontStyle: 'normal',
                 fontWeight: 600,
                 fontSize: '32px',
                 lineHeight: '35px',

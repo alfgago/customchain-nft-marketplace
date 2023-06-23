@@ -10,7 +10,7 @@ export const Filters = () => {
         <div className="filter-section">
           <div className="abs">
             <div className="content">
-              <span className="title trap">Filter by:</span>
+              <span className="title">Filter by:</span>
               <ul className="filters">
                 {filters.map((filter:any)=>{
                     return (<li key={`filter-artist-${filter}`}>

@@ -309,7 +309,7 @@ const TableHeading = () => (
       </Text>
     </TableCell>
     <TableCell>
-      <Text style="subtitle3" color="subtle" css={{fontFamily: 'Trap',
+      <Text style="subtitle3" color="subtle" css={{
         fontStyle: 'normal',
         fontWeight: 700,
         fontSize: '20px',
