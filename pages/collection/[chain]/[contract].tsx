@@ -53,7 +53,6 @@ import titleCase from 'utils/titleCase'
 import Link from 'next/link'
 import Img from 'components/primitives/Img'
 import Sweep from 'components/buttons/Sweep'
-import { Footer } from 'components/home/Footer'
 import GradientSection from 'components/common/GradientSection'
 import SimpleHeader from 'components/common/SimpleHeader'
 
@@ -189,63 +188,74 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
 
   return (
     <Layout>
-      <Navbar />
       <Head
         ogImage={ssr?.collection?.collections?.[0]?.banner}
         title={ssr?.collection?.collections?.[0]?.name}
         description={ssr?.collection?.collections?.[0]?.description as string}
       />
 
-<div>
-            <SimpleHeader textAlign="left">
-   
-
-    {collection ? (
-        <Flex
-          direction="column"
-          css={{
-            maxWidth: 1175,
-            pt: 140,
-            pb: 140,
-            marginLeft: 110,
-            marginRight: 110,
-            "@media(max-width: 960px)": {
-              margin: '0px 34px'},
-            position: 'relative',
-            '@sm': {
-              px: '$5',
-            },
-          }}
-        >
-          <Flex justify="between" css={{ mb: '$4' }}>
-            <Flex direction="column" css={{ gap: '$4', minWidth: 0 }}>
-              <Flex css={{ gap: '$4', flex: 1 }} align="center">
-                <Img
-                  src={collection.image!}
-                  width={64}
-                  height={64}
-                  style={{
-                    width: 239,
-                    height: 239,
-                    borderRadius: 8,
-                    objectFit: 'cover',
-                  }}
-                  alt="Collection Page Image"
-                />
-                <Box css={{ minWidth: 0 }}>
-                  <Flex align="center" css={{ gap: '$2' }}>
-                    <Text style="h5" as="h6" ellipsify>
-                      {collection.name}
-                </Text>
-                    <OpenSeaVerified
-                      openseaVerificationStatus={
-                        collection?.openseaVerificationStatus
-                      }
+      <div>
+        <SimpleHeader textAlign="left">
+          {collection ? (
+            <Flex
+              direction="column"
+              css={{
+                maxWidth: 1175,
+                pt: 140,
+                pb: 140,
+                marginLeft: 110,
+                marginRight: 110,
+                '@media(max-width: 960px)': {
+                  margin: '0px 34px',
+                },
+                position: 'relative',
+                '@sm': {
+                  px: '$5',
+                },
+              }}
+            >
+              <Flex justify="between" css={{ mb: '$4' }}>
+                <Flex
+                  direction="column"
+                  css={{ gap: '$4', minWidth: 0, width: '100%' }}
+                >
+                  <Flex
+                    css={{ gap: '$4', flex: 1, width: '100%' }}
+                    align="center"
+                  >
+                    <Img
+                      src={collection.image!}
+                      width={64}
+                      height={64}
+                      style={{
+                        width: 239,
+                        height: 239,
+                        borderRadius: 8,
+                        objectFit: 'cover',
+                      }}
+                      alt="Collection Page Image"
                     />
-                    
-                  </Flex>
+                    <Box css={{ minWidth: 0, width: '100%' }}>
+                      <Flex
+                        align="center"
+                        css={{ gap: '$2', marginBottom: 20 }}
+                      >
+                        <Text
+                          style="h5"
+                          as="h6"
+                          css={{ color: '#ffff' }}
+                          ellipsify
+                        >
+                          {collection.name}
+                        </Text>
+                        <OpenSeaVerified
+                          openseaVerificationStatus={
+                            collection?.openseaVerificationStatus
+                          }
+                        />
+                      </Flex>
 
-                  {!smallSubtitle && (
+                      {/*!smallSubtitle && (
                     <Flex align="end" css={{ gap: 24 }}>
                       <CopyText
                         text={collection.id as string}
@@ -296,13 +306,14 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                         <Text style="body1"> {creatorRoyalties}%</Text>
                       </Box>
                     </Flex>
-                  )}
-                </Box>
+                  )*/}
+                      {!isSmallDevice && <StatHeader collection={collection} />}
+                    </Box>
+                  </Flex>
+                </Flex>
+                {/* <CollectionActions collection={collection} />*/}
               </Flex>
-            </Flex>
-           {/* <CollectionActions collection={collection} />*/}
-          </Flex>
-          {smallSubtitle && (
+              {/*smallSubtitle && (
             <Grid
               css={{
                 gap: 12,
@@ -348,15 +359,15 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                 <Text style="body1"> {creatorRoyalties}%</Text>
               </Flex>
             </Grid>
+            )*/}
+              {isSmallDevice && <StatHeader collection={collection} />}
+            </Flex>
+          ) : (
+            <Box />
           )}
-          <StatHeader collection={collection} />
-          
-        </Flex>
-      ) : (
-        <Box />
-      )}
-      </SimpleHeader>
-   <GradientSection>{/*<Flex justify="between" css={{ marginBottom: '$4',marginTop: '-60px', zIndex: 12,position: 'relative' }}>
+        </SimpleHeader>
+        <GradientSection>
+          {/*<Flex justify="between" css={{ marginBottom: '$4',marginTop: '-60px', zIndex: 12,position: 'relative' }}>
                     {attributes && attributes.length > 0 && !isSmallDevice && (
                       <FilterButton
                         open={attributeFiltersOpen}
@@ -418,8 +429,9 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                         mutate={mutate}
                       />
                     </Flex>
-                      </Flex>*/}</GradientSection>
-   </div>
+                      </Flex>*/}
+        </GradientSection>
+      </div>
 
       {collection ? (
         <Flex
@@ -427,8 +439,9 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
           css={{
             marginLeft: 110,
             marginRight: 110,
-            "@media(max-width: 960px)": {
-              margin: '0px 34px'},
+            '@media(max-width: 960px)': {
+              margin: '0px 34px',
+            },
             zIndex: 12,
             position: 'relative',
           }}
@@ -487,13 +500,16 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                         ml: 'auto',
                         width: '100%',
                         gap: '$2',
+                        position: 'absolute',
+                        marginTop: -65,
+                        right: 0,
                         '@md': {
                           width: 'max-content',
                           gap: '$3',
                         },
                       }}
                     >
-                       <SortTokens
+                      <SortTokens
                         css={{
                           order: 3,
                           px: '14px',
@@ -625,6 +641,7 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                 css={{
                   gap: activityFiltersOpen ? '$5' : '',
                   position: 'relative',
+                  top: 20,
                 }}
               >
                 {isSmallDevice ? (
@@ -665,7 +682,6 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
       ) : (
         <Box />
       )}
-      <Footer />
     </Layout>
   )
 }

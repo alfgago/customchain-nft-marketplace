@@ -67,7 +67,6 @@ import { ListingsTable } from 'components/token/ListingsTable'
 import Navbar from 'components/navbar'
 import SimpleHeader from 'components/common/SimpleHeader'
 import GradientSection from 'components/common/GradientSection'
-import { Footer } from 'components/home/Footer'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -237,7 +236,6 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
 
   return (
     <Layout>
-      <Navbar />
       <Head
         ogImage={token?.token?.image || collection?.banner}
         title={pageTitle}
@@ -690,7 +688,6 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
           )}
         </Flex>
       </Flex>
-      <Footer />
     </Layout>
   )
 }

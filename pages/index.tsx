@@ -2,7 +2,6 @@ import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import { Text, Flex, Box, Button } from 'components/primitives'
 import Layout from 'components/Layout'
 import { ComponentPropsWithoutRef, useContext, useState } from 'react'
-import { Footer } from 'components/home/Footer'
 import { useMediaQuery } from 'react-responsive'
 import { useMarketplaceChain, useMounted } from 'hooks'
 import { useAccount } from 'wagmi'
@@ -73,7 +72,6 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
 
   return (
     <Layout>
-      <Navbar />
       <Head />
       {isDisconnected && (
         <div>
@@ -196,7 +194,6 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           </Box>
         </Flex>
       </Box>
-      <Footer />
     </Layout>
   )
 }

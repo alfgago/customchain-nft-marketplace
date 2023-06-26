@@ -5,8 +5,11 @@ const TabsList = styled(TabsPrimitive.List, {
   display: 'flex',
   gap: '$5',
   borderBottom: '1px solid $gray5',
-  mt: '$5',
+  //mt: '$5',
   mb: '$4',
+  //New part
+  position: 'absolute',
+  marginTop: -60,
 })
 
 const TabsTrigger = styled(TabsPrimitive.Trigger, {

@@ -13,7 +13,7 @@ type Props = {
 const StatBox: FC<Props> = ({ label, children }) => (
   <Box
     css={{
-      p: '$4',
+      p: 10,
       minWidth: 120,
       background: '$panelBg',
     }}
@@ -44,7 +44,7 @@ const StatHeader: FC<StatHeaderProps> = ({ collection }) => {
         overflow: 'hidden',
         gap: 1,
         gridTemplateColumns: '1fr 1fr',
-        '@sm': {
+        '@lg': {
           gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
           marginRight: 'auto',
         },
