@@ -62,6 +62,7 @@ export const GradientSectionStyles = styled.div`
         position: relative;
         height: 4.5rem;
         object-fit: cover;
+        max-width: none;
       }
     }
   }

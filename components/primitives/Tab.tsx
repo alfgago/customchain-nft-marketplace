@@ -12,6 +12,14 @@ const TabsList = styled(TabsPrimitive.List, {
   marginTop: -60,
 })
 
+const TabsListContract = styled(TabsPrimitive.List, {
+  display: 'flex',
+  gap: '$5',
+  borderBottom: '1px solid $gray5',
+  mt: '$5',
+  mb: '$4',
+})
+
 const TabsTrigger = styled(TabsPrimitive.Trigger, {
   fontWeight: '700',
   pb: '$3',
@@ -23,4 +31,4 @@ const TabsTrigger = styled(TabsPrimitive.Trigger, {
 
 const TabsContent = styled(TabsPrimitive.Content, {})
 
-export { TabsList, TabsTrigger, TabsContent }
+export { TabsList, TabsTrigger, TabsListContract, TabsContent }

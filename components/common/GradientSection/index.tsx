@@ -1,24 +1,22 @@
-import { Box, Flex } from "components/primitives"
-import SimpleHeader from "../SimpleHeader"
 import { FC, ReactNode } from 'react'
 import { GradientSectionStyles } from "./GradientSectionStyles"
-import { Filters } from "components/filters/Filters"
+import { useMediaQuery } from 'react-responsive'
 
 type Props = {
     children: ReactNode
   }
 
 const GradientSection: FC<Props> = ({ children }) => {
-
+  const isSmallDevice = useMediaQuery({ maxWidth: 900 })
 return (
    <GradientSectionStyles>
   <div className='wrapper'>
-      <section className="top-triangle">
+     <section className="top-triangle">
         <div className="content-triangle">
-          <div className="triangle-container">
-            <span className="img-span">
+         <div className="triangle-container">
+         {!isSmallDevice && <span className="img-span">
               <img src="/top-triangle-solo.png" alt="border-top" />
-            </span>
+            </span>}
           </div>
         </div>
       </section>

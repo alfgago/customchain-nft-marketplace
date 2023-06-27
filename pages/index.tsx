@@ -52,6 +52,8 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
     fallbackData: [ssr.collections[marketplaceChain.id]],
   })
 
+  const isSmallDevice = useMediaQuery({ maxWidth: 900 }) && isMounted
+
   let collections = data || []
 
   let volumeKey: ComponentPropsWithoutRef<
@@ -90,7 +92,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                 mt: 44,
                 width: '100%',
                 fontWeight: 700,
-                fontSize: '64px',
+                fontSize: isSmallDevice ? 44 : 64,
                 lineHeight: '70px',
                 color: 'white',
               }}
@@ -103,7 +105,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                 mb: 48,
                 width: '50%',
                 fontWeight: 600,
-                fontSize: '32px',
+                fontSize: isSmallDevice ? 22 :32,
                 lineHeight: '35px',
                 color: 'white',
               }}

@@ -7,7 +7,7 @@ export const GradientBackgroundStyles = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 110vh;
+  height:100%;
   overflow: hidden;
   filter: brightness(1.1);
   pointer-events: none;
