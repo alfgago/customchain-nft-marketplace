@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useCollections } from '@reservoir0x/reservoir-kit-ui'
 import { OpenSeaVerified } from 'components/common/OpenSeaVerified'
 import { NAVBAR_HEIGHT } from 'components/navbar'
+import CollectionsTableTimeToggle from 'components/portfolio/CollectionsTableTimeToggle'
 import {
   Box,
   Flex,

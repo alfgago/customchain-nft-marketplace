@@ -1,10 +1,15 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import { Text, Flex, Box, Button } from 'components/primitives'
 import Layout from 'components/Layout'
-import { ComponentPropsWithoutRef, useContext, useState } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { useMarketplaceChain, useMounted } from 'hooks'
-import { useAccount } from 'wagmi'
+import { useAccount, useFeeData, useSignTypedData } from 'wagmi'
 import { paths } from '@reservoir0x/reservoir-sdk'
 import { useCollections } from '@reservoir0x/reservoir-kit-ui'
 import fetcher from 'utils/fetcher'
@@ -22,6 +27,7 @@ import { Filters } from 'components/filters/Filters'
 import SimpleHeader from 'components/common/SimpleHeader'
 import Navbar from 'components/navbar'
 import GradientSection from 'components/common/GradientSection'
+import { IndexStyles } from './indexStyles'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -33,9 +39,12 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
     useState<CollectionsSortingOption>('1DayVolume')
   const marketplaceChain = useMarketplaceChain()
   const { isDisconnected } = useAccount()
+  const [arrayPages, setArrayPages] = useState([1, 2, 3])
+  const [userClickedPage, setUserClickedPage] = useState(1)
+  const [trimParameters, setTrimParameters] = useState([0, 10])
 
   let collectionQuery: Parameters<typeof useCollections>['0'] = {
-    limit: 10,
+    limit: 20,
     sortBy: sortByTime,
     includeTopBid: true,
   }
@@ -72,66 +81,107 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
       break
   }
 
+  const numberPerPage = 5
+
+  function buildPage(currPage: any) {
+    const trimStart = (currPage - 1) * numberPerPage
+    const trimEnd = trimStart + numberPerPage
+    if (collections.length >= numberPerPage * currPage) {
+      setTrimParameters([trimStart, trimEnd])
+    }
+  }
+
+  function buildPagination(clickedPage: any) {
+    let newArray = []
+    if (clickedPage >= 3) {
+      if (collections.length >= numberPerPage * clickedPage + 1) {
+        for (let i = clickedPage - 1; i <= clickedPage + 1; i++) {
+          newArray.push(i)
+        }
+        setArrayPages(newArray)
+      }
+    } else {
+      setArrayPages([1, 2, 3])
+    }
+    setUserClickedPage(clickedPage)
+  }
+
+  useEffect(() => {
+    buildPagination(1)
+    buildPage(1)
+  }, [])
+
+  function clickPage(clickedPage: any) {
+    buildPagination(clickedPage)
+    buildPage(clickedPage)
+  }
+
   return (
-    <Layout>
-      <Head />
-      {isDisconnected && (
-        <div>
+    <IndexStyles>
+      <Layout>
+        <Head />
+        {isDisconnected && (
+          <div>
             <SimpleHeader textAlign="left">
-          <Flex
-            direction="column"
-            align="start"
-            css={{ maxWidth: 728, p: '90px 110px', "@media(max-width: 960px)": {
-              p: '90px 34px'
-            }, }}
-          >
-            <Text
-              style="h3"
-              css={{
-                mb: 24,
-                mt: 44,
-                width: '100%',
-                fontWeight: 700,
-                fontSize: isSmallDevice ? 44 : 64,
-                lineHeight: '70px',
-                color: 'white',
-              }}
-            >
-              Marketplace
-            </Text>
-            <Text
-              style="body1"
-              css={{
-                mb: 48,
-                width: '50%',
-                fontWeight: 600,
-                fontSize: isSmallDevice ? 22 :32,
-                lineHeight: '35px',
-                color: 'white',
-              }}
-            >
-              Buy, sell, and win guest list access from your favorite artists
-            </Text>
-          </Flex>
-        </SimpleHeader>
-        <GradientSection>
-          <Filters/>
-        </GradientSection>
-        </div>
-      )}
-      <Box
-        css={{
-          //p: 24,
-          p:'24px 110px',
-          zIndex: 12,
-          position: 'relative',
-          height: '100%',
-          "@media(max-width: 960px)": {
-            p: '64px 34px'
-          },
-        }}
-      >
-        {/*isDisconnected && (
+              <Flex
+                direction="column"
+                align="start"
+                css={{
+                  maxWidth: 728,
+                  p: '90px 110px',
+                  '@media(max-width: 960px)': {
+                    p: '90px 34px',
+                  },
+                }}
+              >
+                <Text
+                  style="h3"
+                  css={{
+                    mb: 24,
+                    mt: 44,
+                    width: '100%',
+                    fontWeight: 700,
+                    fontSize: isSmallDevice ? 44 : 64,
+                    lineHeight: '70px',
+                    color: 'white',
+                  }}
+                >
+                  Marketplace
+                </Text>
+                <Text
+                  style="body1"
+                  css={{
+                    mb: 48,
+                    width: '50%',
+                    fontWeight: 600,
+                    fontSize: isSmallDevice ? 22 : 32,
+                    lineHeight: '35px',
+                    color: 'white',
+                  }}
+                >
+                  Buy, sell, and win guest list access from your favorite
+                  artists
+                </Text>
+              </Flex>
+            </SimpleHeader>
+            <GradientSection>
+              <Filters />
+            </GradientSection>
+          </div>
+        )}
+        <Box
+          css={{
+            //p: 24,
+            p: '24px 110px',
+            zIndex: 12,
+            position: 'relative',
+            height: '100%',
+            '@media(max-width: 960px)': {
+              p: '64px 34px',
+            },
+          }}
+        >
+          {/*isDisconnected && (
           /*<Flex
             direction="column"
             align="start"
@@ -145,8 +195,8 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
           </Flex>
         )*/}
 
-        <Flex css={{ gap: 65 }} direction="column">
-          {/* <Flex
+          <Flex css={{ gap: 65 }} direction="column">
+            {/* <Flex
             justify="between"
             align="start"
             css={{
@@ -173,15 +223,18 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               <ChainToggle />
             </Flex>
               </Flex>*/}
-          {isSSR || !isMounted ? null : (
-            <CollectionRankingsTable
-              collections={collections}
-              loading={isValidating}
-              volumeKey={volumeKey}
-            />
-          )}
+            {isSSR || !isMounted ? null : (
+              <CollectionRankingsTable
+                collections={collections.slice(
+                  trimParameters[0],
+                  trimParameters[1]
+                )}
+                loading={isValidating}
+                volumeKey={volumeKey}
+              />
+            )}
 
-          <Box css={{ alignSelf: 'center' }}>
+            {/* <Box css={{ alignSelf: 'center' }}>
             <Link href="/collection-rankings">
               <Button
                 css={{
@@ -193,10 +246,32 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                 View All
               </Button>
             </Link>
-          </Box>
-        </Flex>
-      </Box>
-    </Layout>
+              </Box>*/}
+            <Flex justify="center" css={{ flexDirection: 'row' }}>
+              {arrayPages.map((page: any) => {
+                return (
+                  <div style={{ padding: '10px' }}>
+                    <button
+                      className={`btn btn-primary paginationButton ${
+                        page === userClickedPage
+                          ? 'clickedPage'
+                          : 'paginationPage'
+                      }`}
+                      onClick={() => {
+                        clickPage(page)
+                      }}
+                      value={page}
+                    >
+                      {page}
+                    </button>
+                  </div>
+                )
+              })}
+            </Flex>
+          </Flex>
+        </Box>
+      </Layout>
+    </IndexStyles>
   )
 }
 
@@ -214,7 +289,7 @@ export const getStaticProps: GetStaticProps<{
       sortBy: '1DayVolume',
       normalizeRoyalties: NORMALIZE_ROYALTIES,
       includeTopBid: true,
-      limit: 10,
+      limit: 20,
     }
 
   const promises: ReturnType<typeof fetcher>[] = []
