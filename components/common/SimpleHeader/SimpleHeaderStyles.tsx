@@ -20,4 +20,13 @@ export const SimpleHeaderStyles = styled.section<Props>`
   h1 {
     padding: ${60 / 16}rem 0 ${30 / 16}rem 0;
   }
+  .vertical-logo {
+    width: ${160 / 16}rem;
+    height: ${160 / 16}rem;
+    max-width: 100vw;
+    position: absolute;
+    max-height: 100vw;
+    top: 290px;
+    right: -18px;
+  }
 `

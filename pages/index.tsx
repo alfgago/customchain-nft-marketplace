@@ -25,7 +25,6 @@ import { CollectionRankingsTable } from 'components/rankings/CollectionRankingsT
 import { ChainContext } from 'context/ChainContextProvider'
 import { Filters } from 'components/filters/Filters'
 import SimpleHeader from 'components/common/SimpleHeader'
-import Navbar from 'components/navbar'
 import GradientSection from 'components/common/GradientSection'
 import { IndexStyles } from './indexStyles'
 
