@@ -2,6 +2,9 @@ import { FC } from 'react'
 import { Text, Box, Flex, Anchor, Button } from '../primitives'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import Link from "next/link"
+
+import { FooterStyles } from "./FooterStyles"
 
 type SectionTitleProps = {
   title: string
@@ -62,7 +65,7 @@ const companySectionLinks = [
 
 export const Footer = () => {
   return (
-    <Flex
+   /* <Flex
       justify="between"
       css={{
         borderTop: '1px solid $gray7',
@@ -108,6 +111,33 @@ export const Footer = () => {
           </a>
         </Flex>
       </Flex>
-    </Flex>
+    </Flex> */
+    <FooterStyles>
+    <section className="footer">
+      <div className="content">
+        <Link href="/">
+          <img
+            src="LongHorizontalLogo.svg"
+            alt="plusOne-horizontal"
+            className="watermark-logo"
+          />
+        </Link>
+         <div className='links'>
+          <ul>
+            <li>
+              <Link href="/resources/artists">Explore Artists</Link>
+            </li>
+            <li>
+              <Link href="/resources/passes">Explore Passes</Link>
+            </li>
+            <li>
+              <Link href="/about">About Us</Link>
+            </li>
+          </ul>
+          <span className="preload-font tickerbit">Tickerbit</span>
+       </div>
+      </div>
+    </section>
+  </FooterStyles>
   )
 }

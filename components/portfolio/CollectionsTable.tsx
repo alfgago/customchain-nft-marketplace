@@ -309,7 +309,14 @@ const TableHeading = () => (
       </Text>
     </TableCell>
     <TableCell>
-      <Text style="subtitle3" color="subtle">
+      <Text style="subtitle3" color="subtle" css={{
+        fontStyle: 'normal',
+        fontWeight: 700,
+        fontSize: '20px',
+        lineHeight: '22px',
+        display: 'flex',
+        aligntems:'center',
+        color: '#000000'}}>
         Volume
       </Text>
     </TableCell>

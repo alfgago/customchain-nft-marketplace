@@ -70,6 +70,7 @@ export const TokenActions: FC<Props> = ({
     height: 52,
     justifyContent: 'center',
     minWidth: 'max-content',
+    borderRadius: 44,
     '@sm': {
       maxWidth: 250,
     },
@@ -79,6 +80,7 @@ export const TokenActions: FC<Props> = ({
     <Grid
       align="center"
       css={{
+        marginLeft: 'auto',
         gap: '$4',
         gridTemplateColumns: 'repeat(1,minmax(0,1fr))',
         width: '100%',
@@ -104,7 +106,7 @@ export const TokenActions: FC<Props> = ({
         isListed &&
         token?.market?.floorAsk?.price?.amount && (
           <Flex
-            css={{ ...buttonCss, borderRadius: 8, overflow: 'hidden', gap: 1 }}
+            css={{ ...buttonCss, borderRadius: 42, overflow: 'hidden', gap: 1 }}
           >
             <BuyNow
               tokenId={token.token?.tokenId}

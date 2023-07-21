@@ -43,7 +43,7 @@ export const PriceData: FC<Props> = ({ token }) => {
   return (
     <Flex css={{ gap: '$6', pt: '$4', pb: '$5' }}>
       <Flex direction="column" align="start" css={{ gap: '$1' }}>
-        <Text style="subtitle2">Price</Text>
+        <Text style="subtitle2" css={{color:'#ffff' }}>Price</Text>
         <Flex
           align="center"
           css={{
@@ -60,7 +60,7 @@ export const PriceData: FC<Props> = ({ token }) => {
             maximumFractionDigits={4}
           />
           {token?.market?.floorAsk?.price?.amount?.usd ? (
-            <Text style="body3" css={{ color: '$gray11' }} ellipsify>
+            <Text style="body3" css={{ color:'#ffff' }} ellipsify>
               {formatDollar(
                 token?.market?.floorAsk?.price?.amount?.usd as number
               )}
@@ -90,7 +90,7 @@ export const PriceData: FC<Props> = ({ token }) => {
         )}
       </Flex>
       <Flex direction="column" align="start" css={{ gap: '$1' }}>
-        <Text style="subtitle2">Top Offer</Text>
+        <Text style="subtitle2" css={{color:'#ffff'}}>Top Offer</Text>
         <Flex
           align="center"
           css={{
@@ -107,7 +107,7 @@ export const PriceData: FC<Props> = ({ token }) => {
             maximumFractionDigits={4}
           />
           {token?.market?.topBid?.price?.amount?.usd ? (
-            <Text style="body3" css={{ color: '$gray11' }} ellipsify>
+            <Text style="body3" css={{ color:'#ffff' }} ellipsify>
               {formatDollar(token?.market?.topBid?.price?.amount?.usd)}
             </Text>
           ) : null}
@@ -127,7 +127,7 @@ export const PriceData: FC<Props> = ({ token }) => {
               }}
             >
               <img width="20px" height="20px" src={offerSourceLogo} />
-              <Text style="body3" css={{ color: '$gray11' }}>
+              <Text style="body3" css={{ color:'#ffff'  }}>
                 {offerSourceName}
               </Text>
             </Flex>

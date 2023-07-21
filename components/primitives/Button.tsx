@@ -6,7 +6,7 @@ const Button = styled('button', {
   fontSize: 16,
   fontFamily: '$button',
   transition: 'background-color 250ms linear',
-  gap: '$space$2',
+  gap: '$2',
   display: 'inline-flex',
   alignItems: 'center',
   lineHeight: '20px',

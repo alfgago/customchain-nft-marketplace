@@ -58,7 +58,8 @@ export default ({
       css={{
         borderRadius: 8,
         overflow: 'hidden',
-        background: '$neutralBgSubtle',
+        //background: '$neutralBgSubtle',
+        backgroundColor:'#F0F0F0',
         $$shadowColor: '$colors$panelShadow',
         boxShadow: '0 8px 12px 0px $$shadowColor',
         position: 'relative',
@@ -325,10 +326,11 @@ export default ({
             buttonCss={{
               justifyContent: 'center',
               flex: 1,
+              borderRadius: '42px 0px 0px 0px'
             }}
-            buttonProps={{
-              corners: 'square',
-            }}
+            //buttonProps={{
+            //  corners: 'square',
+            //}}
             buttonChildren="Buy Now"
           />
           {addToCartEnabled ? (
@@ -338,8 +340,9 @@ export default ({
                 width: 52,
                 p: 0,
                 justifyContent: 'center',
+                borderRadius: '0px 42px 0px 0px'
               }}
-              buttonProps={{ corners: 'square' }}
+              //buttonProps={{ corners: 'square' }}
             />
           ) : null}
         </Flex>

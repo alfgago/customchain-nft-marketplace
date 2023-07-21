@@ -33,7 +33,7 @@ import {
   Tooltip,
 } from 'components/primitives'
 import { Dropdown } from 'components/primitives/Dropdown'
-import { TabsContent, TabsList, TabsTrigger } from 'components/primitives/Tab'
+import { TabsContent, TabsList, TabsListContract, TabsTrigger } from 'components/primitives/Tab'
 import AttributeCard from 'components/token/AttributeCard'
 import FullscreenMedia from 'components/token/FullscreenMedia'
 import { PriceData } from 'components/token/PriceData'
@@ -64,6 +64,9 @@ import { useAccount } from 'wagmi'
 import { Head } from 'components/Head'
 import { OffersTable } from 'components/token/OffersTable'
 import { ListingsTable } from 'components/token/ListingsTable'
+import Navbar from 'components/navbar'
+import SimpleHeader from 'components/common/SimpleHeader'
+import GradientSection from 'components/common/GradientSection'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -238,90 +241,97 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
         title={pageTitle}
         description={collection?.description as string}
       />
-      <Flex
-        justify="center"
-        css={{
-          maxWidth: 1175,
-          mt: 10,
-          pb: 100,
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          px: '$1',
-          gap: 20,
-          flexDirection: 'column',
-          alignItems: 'center',
-          '@md': {
-            mt: 48,
-            px: '$3',
-            flexDirection: 'row',
-            gap: 40,
-            alignItems: 'flex-start',
-          },
-          '@lg': {
-            gap: 80,
-          },
-        }}
-      >
-        <Flex
-          direction="column"
-          css={{
-            maxWidth: '100%',
-            flex: 1,
-            width: '100%',
-            '@md': { maxWidth: 445 },
-            position: 'relative',
-            '@sm': {
-              '>button': {
-                height: 0,
-                opacity: 0,
-                transition: 'opacity .3s',
-              },
-            },
-            ':hover >button': {
-              opacity: 1,
-              transition: 'opacity .3s',
-            },
-          }}
-        >
-          <Box
+      <div>
+        <SimpleHeader textAlign="left">
+          <Flex
             css={{
-              backgroundColor: '$gray3',
-              borderRadius: 8,
-              '@sm': {
-                button: {
-                  height: 0,
-                  opacity: 0,
-                  transition: 'opacity .3s',
-                },
+              //maxWidth: 1175,
+              pt: 140,
+              pb: 100,
+              marginLeft: 110,
+              marginRight: 110,
+              gap: 20,
+              flexDirection: 'column',
+              // alignItems: 'center',
+              '@md': {
+                px: '$3',
+                flexDirection: 'row',
+                gap: 40,
+                alignItems: 'flex-start',
               },
-              ':hover button': {
-                opacity: 1,
-                transition: 'opacity .3s',
+              '@media(max-width: 960px)': {
+                margin: '0px 34px',
+              },
+              '@lg': {
+                gap: 80,
               },
             }}
           >
-            <TokenMedia
-              token={token?.token}
-              videoOptions={{ autoPlay: true, muted: true }}
-              style={{
-                width: '100%',
-                height: 'auto',
-                minHeight: isMounted && isSmallDevice ? 300 : 445,
-                borderRadius: 8,
-                overflow: 'hidden',
+            <Flex
+              direction="column"
+              css={{
+                maxWidth: '100%',
+                //flex: 1,
+                width: 390,
+                height: isSmallDevice ? 320 : 410,
+                //width: '100%',
+               //'@md': { maxHeight: 320 },
+                position: 'relative',
+                '@sm': {
+                  '>button': {
+                    height: 0,
+                    opacity: 0,
+                    transition: 'opacity .3s',
+                  },
+                },
+                ':hover >button': {
+                  opacity: 1,
+                  transition: 'opacity .3s',
+                },
               }}
-              onRefreshToken={() => {
-                mutate?.()
-                addToast?.({
-                  title: 'Refresh token',
-                  description: 'Request to refresh this token was accepted.',
-                })
-              }}
-            />
-            <FullscreenMedia token={token} />
-          </Box>
+            >
+              <Box
+                css={{
+                  backgroundColor: '$gray3',
+                  borderRadius: 8,
+                  width: '100%',
+                  height: '100%',
+                  '@sm': {
+                    button: {
+                      height: 0,
+                      opacity: 0,
+                      transition: 'opacity .3s',
+                    },
+                  },
+                  ':hover button': {
+                    opacity: 1,
+                    transition: 'opacity .3s',
+                  },
+                }}
+              >
+                <TokenMedia
+                  token={token?.token}
+                  videoOptions={{ autoPlay: true, muted: true }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                   // minHeight: isMounted && isSmallDevice ? 300 : 445,
+                    borderRadius: 8,
+                    overflow: 'hidden',
+                  }}
+                  onRefreshToken={() => {
+                    mutate?.()
+                    addToast?.({
+                      title: 'Refresh token',
+                      description:
+                        'Request to refresh this token was accepted.',
+                    })
+                  }}
+                />
+                <FullscreenMedia token={token} />
+              </Box>
 
-          {token?.token?.attributes && !isSmallDevice && (
+              {/* token?.token?.attributes && !isSmallDevice && (
             <Grid
               css={{
                 maxWidth: '100%',
@@ -340,48 +350,55 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                 />
               ))}
             </Grid>
-          )}
-        </Flex>
-        <Flex
-          direction="column"
-          css={{
-            flex: 1,
-            px: '$3',
-            width: '100%',
-            '@md': {
-              px: 0,
-              maxWidth: '60%',
-              overflow: 'hidden',
-            },
-          }}
-        >
-          <Flex justify="between" align="center" css={{ mb: 20 }}>
-            <Flex align="center" css={{ mr: '$2', gap: '$2' }}>
-              <Link
-                href={`/collection/${router.query.chain}/${token?.token?.collection?.id}`}
-                legacyBehavior={true}
-              >
-                <Anchor
-                  color="primary"
-                  css={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '$2',
-                  }}
-                >
-                  <FontAwesomeIcon icon={faArrowLeft} height={16} />
-                  <Text css={{ color: 'inherit' }} style="subtitle1" ellipsify>
-                    {token?.token?.collection?.name}
-                  </Text>
-                </Anchor>
-              </Link>
-              <OpenSeaVerified
-                openseaVerificationStatus={
-                  collection?.openseaVerificationStatus
-                }
-              />
+              )*/}
             </Flex>
-            <Button
+
+            <Flex
+              direction="column"
+              css={{
+                flex: 1,
+                px: '$3',
+                width: '100%',
+                position: 'relative',
+                '@md': {
+                  px: 0,
+                  maxWidth: '60%',
+                  overflow: 'hidden',
+                },
+              }}
+            >
+              <Flex justify="between" align="center" css={{ mb: 20 }}>
+                <Flex align="center" css={{ mr: '$2', gap: '$2' }}>
+                  <Link
+                    href={`/collection/${router.query.chain}/${token?.token?.collection?.id}`}
+                    legacyBehavior={true}
+                  >
+                    <Anchor
+                      //color="primary"
+                      css={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '$2',
+                        color: '#ffff',
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faArrowLeft} height={16} />
+                      <Text
+                        css={{ color: 'inherit' }}
+                        style="subtitle1"
+                        ellipsify
+                      >
+                        {token?.token?.collection?.name}
+                      </Text>
+                    </Anchor>
+                  </Link>
+                  <OpenSeaVerified
+                    openseaVerificationStatus={
+                      collection?.openseaVerificationStatus
+                    }
+                  />
+                </Flex>
+                {/* <Button
               onClick={(e) => {
                 if (isRefreshing) {
                   e.preventDefault()
@@ -441,70 +458,92 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
               >
                 <FontAwesomeIcon icon={faRefresh} width={16} height={16} />
               </Box>
-            </Button>
-          </Flex>
-          <Flex align="center" css={{ gap: '$2' }}>
-            <Text style="h4" css={{ wordBreak: 'break-all' }}>
-              {tokenName}
-            </Text>
-            {flagged && (
-              <Tooltip
-                content={
-                  <Text style="body3" as="p">
-                    Not tradeable on OpenSea
-                  </Text>
-                }
-              >
-                <Text css={{ color: '$red10' }}>
-                  <FontAwesomeIcon
-                    icon={faCircleExclamation}
-                    width={16}
-                    height={16}
-                  />
+            </Button>*/}
+              </Flex>
+              <Flex align="center" css={{ gap: '$2' }}>
+                <Text
+                  style="h4"
+                  css={{ wordBreak: 'break-all', color: '#ffff' }}
+                >
+                  {tokenName}
                 </Text>
-              </Tooltip>
-            )}
-          </Flex>
-          {token && (
-            <>
-              {is1155 && countOwned > 0 && (
-                <Flex align="center" css={{ mt: '$2' }}>
-                  <Text style="subtitle3" color="subtle" css={{ mr: '$2' }}>
-                    You own {countOwned}
-                  </Text>
-                  <Link href={`/portfolio`} legacyBehavior={true}>
-                    <Anchor
-                      color="primary"
-                      weight="normal"
-                      css={{ ml: '$1', fontSize: 12 }}
-                    >
-                      Sell
-                    </Anchor>
-                  </Link>
-                </Flex>
-              )}
-              {!is1155 && (
-                <Flex align="center" css={{ mt: '$2' }}>
-                  <Text style="subtitle3" color="subtle" css={{ mr: '$2' }}>
-                    Owner
-                  </Text>
-                  <Jazzicon
-                    diameter={16}
-                    seed={jsNumberForAddress(owner || '')}
+                {flagged && (
+                  <Tooltip
+                    content={
+                      <Text style="body3" as="p">
+                        Not tradeable on OpenSea
+                      </Text>
+                    }
+                  >
+                    <Text css={{ color: '#ffff' }}>
+                      <FontAwesomeIcon
+                        icon={faCircleExclamation}
+                        width={16}
+                        height={16}
+                      />
+                    </Text>
+                  </Tooltip>
+                )}
+              </Flex>
+              {token && (
+                <>
+                  {is1155 && countOwned > 0 && (
+                    <Flex align="center" css={{ mt: '$2' }}>
+                      <Text style="subtitle3" color="subtle" css={{ mr: '$2' }}>
+                        You own {countOwned}
+                      </Text>
+                      <Link href={`/portfolio`} legacyBehavior={true}>
+                        <Anchor
+                          //color="primary"
+                          weight="normal"
+                          css={{ ml: '$1', fontSize: 12, color: '#ffff' }}
+                        >
+                          Sell
+                        </Anchor>
+                      </Link>
+                    </Flex>
+                  )}
+                  {!is1155 && (
+                    <Flex align="center" css={{ mt: '$2' }}>
+                      <Text
+                        style="subtitle3"
+                        css={{ mr: '$2', color: '#ffff' }}
+                      >
+                        Owner
+                      </Text>
+                      <Jazzicon
+                        diameter={16}
+                        seed={jsNumberForAddress(owner || '')}
+                      />
+                      <Link href={`/profile/${owner}`} legacyBehavior={true}>
+                        <Anchor
+                          weight="normal"
+                          css={{ ml: '$1', color: '#ffff' }}
+                        >
+                          {isMounted ? ownerFormatted : ''}
+                        </Anchor>
+                      </Link>
+                    </Flex>
+                  )}
+                  <RarityRank
+                    token={token}
+                    collection={collection}
+                    collectionAttributes={attributesData?.data}
                   />
-                  <Link href={`/profile/${owner}`} legacyBehavior={true}>
-                    <Anchor color="primary" weight="normal" css={{ ml: '$1' }}>
-                      {isMounted ? ownerFormatted : ''}
-                    </Anchor>
-                  </Link>
-                </Flex>
+                  <PriceData token={token} />
+                </>
               )}
-              <RarityRank
-                token={token}
-                collection={collection}
-                collectionAttributes={attributesData?.data}
-              />
-              <PriceData token={token} />
+            </Flex>
+          </Flex>
+        </SimpleHeader>
+        <GradientSection>
+          <>
+            {/*token && (
+            <div style={{
+              marginTop: '-70px',
+              zIndex: 9,
+              position: 'relative',
+              width: '100%'}}>
               {isMounted && (
                 <TokenActions
                   token={token}
@@ -515,98 +554,157 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                   account={account}
                 />
               )}
-              <Tabs.Root
-                defaultValue=""
-                value={tabValue}
-                onValueChange={(value) => setTabValue(value)}
-                style={{
-                  paddingRight: isSmallDevice ? 0 : 15,
-                }}
-              >
-                <TabsList
-                  css={{
-                    overflowX: isSmallDevice ? 'scroll' : 'unset',
+              </div>
+              )
+              */}
+          </>
+        </GradientSection>
+      </div>
+      <Flex
+        css={{
+          maxWidth: 1175,
+          pb: 100,
+          marginLeft: 110,
+          marginRight: 110,
+          gap: 20,
+          flexDirection: 'column',
+          alignItems: 'center',
+          zIndex: 12,
+          position: 'relative',
+          '@md': {
+            mt: 48,
+            px: '$3',
+            flexDirection: 'row',
+            gap: 40,
+            alignItems: 'flex-start',
+          },
+          '@media(max-width: 960px)': {
+            margin: '0px 34px',
+          },
+          '@lg': {
+            gap: 80,
+          },
+        }}
+      >
+        <Flex
+          direction="column"
+          css={{
+            flex: 1,
+            px: '$3',
+            width: '100%',
+            '@md': {
+              px: 0,
+              maxWidth: '100%',
+              overflow: 'hidden',
+            },
+          }}
+        >
+          {token && (
+            <>
+              {isMounted && (
+                <TokenActions
+                  token={token}
+                  offer={offer}
+                  listing={listing}
+                  isOwner={isOwner}
+                  mutate={mutate}
+                  account={account}
+                />
+              )}
+              <div style={{ maxWidth: isSmallDevice ? '100%' : '80%' }}>
+                <Tabs.Root
+                  defaultValue=""
+                  value={tabValue}
+                  onValueChange={(value) => setTabValue(value)}
+                  style={{
+                    paddingRight: isSmallDevice ? 0 : 15,
                   }}
                 >
-                  {isMounted && isSmallDevice && hasAttributes && (
-                    <TabsTrigger value="attributes">Attributes</TabsTrigger>
-                  )}
-                  <TabsTrigger value="info">Info</TabsTrigger>
-                  <TabsTrigger value="activity">Activity</TabsTrigger>
-                  <TabsTrigger value="listings">Listings</TabsTrigger>
-                  <TabsTrigger value="offers">Offers</TabsTrigger>
-                </TabsList>
-                <TabsContent value="attributes">
-                  {token?.token?.attributes && (
-                    <Grid
-                      css={{
-                        gap: '$3',
-                        mt: 24,
-                        gridTemplateColumns: '1fr',
-                        '@sm': {
-                          gridTemplateColumns: '1fr 1fr',
-                        },
-                      }}
-                    >
-                      {token?.token?.attributes?.map((attribute) => (
-                        <AttributeCard
-                          key={`${attribute.key}-${attribute.value}`}
-                          attribute={attribute}
-                          collectionTokenCount={collection?.tokenCount || 0}
-                          collectionId={collection?.id}
-                        />
-                      ))}
-                    </Grid>
-                  )}
-                </TabsContent>
-                <TabsContent value="info">
-                  {collection && (
-                    <TokenInfo token={token} collection={collection} />
-                  )}
-                </TabsContent>
-                <TabsContent value="activity" css={{ mr: -15 }}>
-                  {isSmallDevice ? (
-                    <MobileActivityFilters
-                      activityTypes={activityTypes}
-                      setActivityTypes={setActivityTypes}
-                    />
-                  ) : (
-                    <Dropdown
-                      trigger={trigger}
-                      contentProps={{
-                        sideOffset: 8,
-                      }}
-                    >
-                      <ActivityFilters
-                        open={activityFiltersOpen}
-                        setOpen={setActivityFiltersOpen}
+                  <TabsListContract
+                    css={{
+                      overflowX: isSmallDevice ? 'scroll' : 'unset',
+                    }}
+                  >
+                    {isMounted && isSmallDevice && hasAttributes && (
+                      <TabsTrigger value="attributes">Attributes</TabsTrigger>
+                    )}
+                    <TabsTrigger value="info">Info</TabsTrigger>
+                    <TabsTrigger value="activity">Activity</TabsTrigger>
+                    <TabsTrigger value="listings">Listings</TabsTrigger>
+                    <TabsTrigger value="offers">Offers</TabsTrigger>
+                  </TabsListContract>
+                  <TabsContent value="attributes">
+                    {token?.token?.attributes && (
+                      <Grid
+                        css={{
+                          gap: '$3',
+                          mt: 24,
+                          gridTemplateColumns: '1fr',
+                          '@sm': {
+                            gridTemplateColumns: '1fr 1fr',
+                          },
+                        }}
+                      >
+                        {token?.token?.attributes?.map((attribute) => (
+                          <AttributeCard
+                            key={`${attribute.key}-${attribute.value}`}
+                            attribute={attribute}
+                            collectionTokenCount={collection?.tokenCount || 0}
+                            collectionId={collection?.id}
+                          />
+                        ))}
+                      </Grid>
+                    )}
+                  </TabsContent>
+                  <TabsContent value="info">
+                    {collection && (
+                      <TokenInfo token={token} collection={collection} />
+                    )}
+                  </TabsContent>
+                  <TabsContent value="activity" css={{ mr: -15 }}>
+                    {isSmallDevice ? (
+                      <MobileActivityFilters
                         activityTypes={activityTypes}
                         setActivityTypes={setActivityTypes}
                       />
-                    </Dropdown>
-                  )}
-                  <TokenActivityTable
-                    id={`${contract}:${token?.token?.tokenId}`}
-                    activityTypes={activityTypes}
-                  />
-                </TabsContent>
-                <TabsContent value="listings">
-                  <ListingsTable
-                    token={`${contract}:${token?.token?.tokenId}`}
-                    address={account.address}
-                    is1155={is1155}
-                    isOwner={isOwner}
-                  />
-                </TabsContent>
-                <TabsContent value="offers" css={{ mr: -15, width: '100%' }}>
-                  <OffersTable
-                    token={`${contract}:${token?.token?.tokenId}`}
-                    address={account.address}
-                    is1155={is1155}
-                    isOwner={isOwner}
-                  />
-                </TabsContent>
-              </Tabs.Root>
+                    ) : (
+                      <Dropdown
+                        trigger={trigger}
+                        contentProps={{
+                          sideOffset: 8,
+                        }}
+                      >
+                        <ActivityFilters
+                          open={activityFiltersOpen}
+                          setOpen={setActivityFiltersOpen}
+                          activityTypes={activityTypes}
+                          setActivityTypes={setActivityTypes}
+                        />
+                      </Dropdown>
+                    )}
+                    <TokenActivityTable
+                      id={`${contract}:${token?.token?.tokenId}`}
+                      activityTypes={activityTypes}
+                    />
+                  </TabsContent>
+                  <TabsContent value="listings">
+                    <ListingsTable
+                      token={`${contract}:${token?.token?.tokenId}`}
+                      address={account.address}
+                      is1155={is1155}
+                      isOwner={isOwner}
+                    />
+                  </TabsContent>
+                  <TabsContent value="offers" css={{ mr: -15, width: '100%' }}>
+                    <OffersTable
+                      token={`${contract}:${token?.token?.tokenId}`}
+                      address={account.address}
+                      is1155={is1155}
+                      isOwner={isOwner}
+                    />
+                  </TabsContent>
+                </Tabs.Root>
+              </div>
             </>
           )}
         </Flex>

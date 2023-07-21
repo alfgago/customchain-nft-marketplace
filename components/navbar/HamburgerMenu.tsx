@@ -36,12 +36,12 @@ const HamburgerMenu = () => {
 
   const trigger = (
     <Button
-      css={{ justifyContent: 'center', width: '44px', height: '44px' }}
+      css={{ justifyContent: 'center', width: '44px', height: '44px',backgroundColor:'transparent', ':hover':{backgroundColor:'transparent'} }}
       type="button"
       size="small"
-      color="gray3"
+     // color="gray3"
     >
-      <FontAwesomeIcon icon={faBars} width={16} height={16} />
+      <FontAwesomeIcon icon={faBars} width={20} height={20} size="2xl"/>
     </Button>
   )
 
@@ -242,47 +242,12 @@ const HamburgerMenu = () => {
                   Portfolio
                 </Text>
               </Link>
-              <Anchor
-                href="https://docs.reservoir.tools/docs"
-                target="_blank"
-                css={{
-                  borderBottom: '1px solid $gray4',
-                  cursor: 'pointer',
-                  pb: '$4',
-                  pt: '24px',
-                  width: '100%',
-                }}
-              >
-                <Text style="subtitle1">Docs</Text>
-              </Anchor>
             </Flex>
             <Box>
               <ConnectWalletButton />
             </Box>
           </Flex>
         )}
-        <Flex
-          css={{
-            pt: '24px',
-            pb: '$5',
-            px: '$4',
-            gap: '$4',
-            width: '100%',
-            borderTop: '1px solid $gray4',
-          }}
-        >
-          <a href="https://twitter.com/reservoir0x" target="_blank">
-            <Button
-              css={{ justifyContent: 'center', width: '44px', height: '44px' }}
-              type="button"
-              size="small"
-              color="gray3"
-            >
-              <FontAwesomeIcon icon={faTwitter} width={20} height={20} />
-            </Button>
-          </a>
-          <ThemeSwitcher />
-        </Flex>
       </Flex>
     </FullscreenModal>
   )

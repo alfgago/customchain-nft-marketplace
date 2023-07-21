@@ -39,6 +39,13 @@ export default styled('span', {
         fontWeight: 500,
         fontSize: 12,
       },
+      headerColumn:{
+        fontWeight: 700,
+        fontSize: 20,
+        display: 'flex',
+        alignItems: 'center',
+        color: '#000000',
+      },
       body1: {
         fontWeight: 400,
         fontSize: 16,
@@ -54,7 +61,7 @@ export default styled('span', {
     },
     color: {
       subtle: {
-        color: '$gray11',
+        color: '#ffff',
       },
       error: {
         color: '$red11',
