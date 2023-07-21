@@ -4,7 +4,6 @@
 import { useEffect, useState } from "react"
 
 import { Gradient } from "../../../utils/GradientEffect/gradient"
-
 import { GradientBackgroundStyles } from "./GradientBackgroundStyles"
 
 const GradientBackground = ({

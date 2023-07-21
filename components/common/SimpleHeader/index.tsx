@@ -1,5 +1,4 @@
-import GradientBackground from '../GradientBackground/index'
-
+import GradientBackground from '../gradientBackground'
 import { SimpleHeaderStyles } from './SimpleHeaderStyles'
 import { useMediaQuery } from 'react-responsive'
 

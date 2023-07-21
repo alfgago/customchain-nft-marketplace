@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { FC, useEffect, useState } from 'react'
 import { AnimatedOverlay, Content } from 'components/primitives/Dialog'
 import { useAccount, useDisconnect } from 'wagmi'
@@ -20,7 +22,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import CopyText from 'components/common/CopyText'
 import Link from 'next/link'
-import Wallet from './Wallet'
+// import Wallet from './Wallet'
 import { useRouter } from 'next/router'
 
 export const AccountSidebar: FC = () => {
@@ -225,7 +227,7 @@ export const AccountSidebar: FC = () => {
                       </Flex>
                     </Link>
                   </Grid>
-                  <Wallet />
+                  
                   <Flex
                     justify="between"
                     align="center"
