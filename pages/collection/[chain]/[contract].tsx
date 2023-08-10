@@ -254,112 +254,12 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                           }
                         />
                       </Flex>
-
-                      {/*!smallSubtitle && (
-                    <Flex align="end" css={{ gap: 24 }}>
-                      <CopyText
-                        text={collection.id as string}
-                        css={{ width: 'max-content' }}
-                      >
-                        <Flex css={{ gap: '$2', width: 'max-content' }}>
-                          {!isSmallDevice && (
-                            <Text style="body1" color="subtle">
-                              Collection
-                            </Text>
-                          )}
-                          <Text
-                            style="body1"
-                            color={isSmallDevice ? 'subtle' : undefined}
-                            as="p"
-                          >
-                            {truncateAddress(collection.id as string)}
-                          </Text>
-                          <Box css={{ color: '$gray10' }}>
-                            <FontAwesomeIcon
-                              icon={faCopy}
-                              width={16}
-                              height={16}
-                            />
-                          </Box>
-                        </Flex>
-                      </CopyText>
-                      <Box>
-                        <Text style="body1" color="subtle">
-                          Token Standard{' '}
-                        </Text>
-                        <Text style="body1">{contractKind}</Text>
-                      </Box>
-                      <Box>
-                        <Text style="body1" color="subtle">
-                          Chain{' '}
-                        </Text>
-                        <Link
-                          href={`/collection-rankings?chain=${router.query.chain}`}
-                        >
-                          <Text style="body1">{chain}</Text>
-                        </Link>
-                      </Box>
-                      <Box>
-                        <Text style="body1" color="subtle">
-                          Creator Earnings
-                        </Text>
-                        <Text style="body1"> {creatorRoyalties}%</Text>
-                      </Box>
-                    </Flex>
-                  )*/}
                       {!isSmallDevice && <StatHeader collection={collection} />}
                     </Box>
                   </Flex>
                 </Flex>
                 {/* <CollectionActions collection={collection} />*/}
               </Flex>
-              {/*smallSubtitle && (
-            <Grid
-              css={{
-                gap: 12,
-                mb: 24,
-                gridTemplateColumns: '1fr 1fr',
-                maxWidth: 550,
-              }}
-            >
-              <CopyText
-                text={collection.id as string}
-                css={{ width: 'max-content' }}
-              >
-                <Flex css={{ width: 'max-content' }} direction="column">
-                  <Text style="body1" color="subtle">
-                    Collection
-                  </Text>
-                  <Flex css={{ gap: '$2' }}>
-                    <Text style="body1" as="p">
-                      {truncateAddress(collection.id as string)}
-                    </Text>
-                    <Box css={{ color: '$gray10' }}>
-                      <FontAwesomeIcon icon={faCopy} width={16} height={16} />
-                    </Box>
-                  </Flex>
-                </Flex>
-              </CopyText>
-              <Flex direction="column">
-                <Text style="body1" color="subtle">
-                  Token Standard{' '}
-                </Text>
-                <Text style="body1">{contractKind}</Text>
-              </Flex>
-              <Flex direction="column">
-                <Text style="body1" color="subtle">
-                  Chain{' '}
-                </Text>
-                <Text style="body1">{chain}</Text>
-              </Flex>
-              <Flex direction="column">
-                <Text style="body1" color="subtle">
-                  Creator Earnings
-                </Text>
-                <Text style="body1"> {creatorRoyalties}%</Text>
-              </Flex>
-            </Grid>
-            )*/}
               {isSmallDevice && <StatHeader collection={collection} />}
             </Flex>
           ) : (
@@ -367,69 +267,6 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
           )}
         </SimpleHeader>
         <GradientSection>
-          {/*<Flex justify="between" css={{ marginBottom: '$4',marginTop: '-60px', zIndex: 12,position: 'relative' }}>
-                    {attributes && attributes.length > 0 && !isSmallDevice && (
-                      <FilterButton
-                        open={attributeFiltersOpen}
-                        setOpen={setAttributeFiltersOpen}
-                      />
-                    )}
-                    <Flex
-                      css={{
-                        ml: 'auto',
-                        width: '100%',
-                        gap: '$2',
-                        '@md': {
-                          width: 'max-content',
-                          gap: '$3',
-                        },
-                      }}
-                    >
-                       <SortTokens
-                        css={{
-                          order: 3,
-                          px: '14px',
-                          justifyContent: 'center',
-                          '@md': {
-                            order: 1,
-                            width: '220px',
-                            minWidth: 'max-content',
-                            px: '$5',
-                          },
-                        }}
-                      />
-                      <Sweep
-                        collectionId={collection.id}
-                        buttonChildren={<FontAwesomeIcon icon={faBroom} />}
-                        buttonCss={{
-                          minWidth: 48,
-                          minHeight: 48,
-                          justifyContent: 'center',
-                          padding: 0,
-                          order: 1,
-                          '@md': {
-                            order: 2,
-                          },
-                        }}
-                        mutate={mutate}
-                      />
-                      <CollectionOffer
-                        collection={collection}
-                        buttonCss={{
-                          width: '100%',
-                          justifyContent: 'center',
-                          order: 2,
-                          '@md': {
-                            order: 3,
-                          },
-                          '@sm': {
-                            maxWidth: '220px',
-                          },
-                        }}
-                        mutate={mutate}
-                      />
-                    </Flex>
-                      </Flex>*/}
         </GradientSection>
       </div>
 

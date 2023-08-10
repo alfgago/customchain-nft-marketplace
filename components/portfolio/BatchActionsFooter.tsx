@@ -40,7 +40,6 @@ const BatchActionsFooter: FC<Props> = ({
         <Text>
           {selectedItemCount} {itemSubject}
         </Text>
-        {/* TODO: Select All button */}
         <Button
           color={'ghost'}
           css={{ color: '$primary11' }}

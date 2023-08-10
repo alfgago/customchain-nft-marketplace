@@ -180,48 +180,8 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
             },
           }}
         >
-          {/*isDisconnected && (
-          /*<Flex
-            direction="column"
-            align="start"
-            css={{ maxWidth: 728, pt: '$5' }}
-          >
-            <Text style="h3" css={{ mb: 24, width:'100%', fontFamily: 'Trap', fontStyle: 'normal',fontWeight: 700, fontSize: '64px',lineHeight: '70px' }}>Marketplace
-            </Text>
-            <Text style="body1" css={{ mb: 48, width:'50%',  fontFamily: 'Trap', fontStyle: 'normal',fontWeight: 600, fontSize: '32px',lineHeight: '35px' }}>
-            Buy, sell, and win guest  list access from your favorite artists
-            </Text>
-          </Flex>
-        )*/}
 
           <Flex css={{ gap: 65 }} direction="column">
-            {/* <Flex
-            justify="between"
-            align="start"
-            css={{
-              flexDirection: 'column',
-              gap: 24,
-              '@bp800': {
-                alignItems: 'center',
-                flexDirection: 'row',
-              },
-            }}
-          >
-            <Text style="h4" as="h4">
-              Popular Collections
-            </Text>
-            
-            <Flex align="center" css={{ gap: '$4' }}>
-              <CollectionsTimeDropdown
-                compact={compactToggleNames && isMounted}
-                option={sortByTime}
-                onOptionSelected={(option) => {
-                  setSortByTime(option)
-                }}
-              />
-              <ChainToggle />
-            </Flex>
-              </Flex>*/}
             {isSSR || !isMounted ? null : (
               <CollectionRankingsTable
                 collections={collections.slice(
@@ -232,20 +192,6 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                 volumeKey={volumeKey}
               />
             )}
-
-            {/* <Box css={{ alignSelf: 'center' }}>
-            <Link href="/collection-rankings">
-              <Button
-                css={{
-                  minWidth: 224,
-                  justifyContent: 'center',
-                }}
-                size="large"
-              >
-                View All
-              </Button>
-            </Link>
-              </Box>*/}
             <Flex justify="center" css={{ flexDirection: 'row' }}>
               {arrayPages.map((page: any) => {
                 return (

@@ -330,27 +330,6 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                 />
                 <FullscreenMedia token={token} />
               </Box>
-
-              {/* token?.token?.attributes && !isSmallDevice && (
-            <Grid
-              css={{
-                maxWidth: '100%',
-                width: '100%',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '$3',
-                mt: 24,
-              }}
-            >
-              {token?.token?.attributes?.map((attribute) => (
-                <AttributeCard
-                  key={`${attribute.key}-${attribute.value}`}
-                  attribute={attribute}
-                  collectionTokenCount={collection?.tokenCount || 0}
-                  collectionId={collection?.id}
-                />
-              ))}
-            </Grid>
-              )*/}
             </Flex>
 
             <Flex
@@ -398,67 +377,6 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                     }
                   />
                 </Flex>
-                {/* <Button
-              onClick={(e) => {
-                if (isRefreshing) {
-                  e.preventDefault()
-                  return
-                }
-                setIsRefreshing(true)
-                fetcher(
-                  `${window.location.origin}/${proxyApi}/tokens/refresh/v1`,
-                  undefined,
-                  {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ token: `${contract}:${id}` }),
-                  }
-                )
-                  .then(({ data, response }) => {
-                    if (response.status === 200) {
-                      addToast?.({
-                        title: 'Refresh token',
-                        description:
-                          'Request to refresh this token was accepted.',
-                      })
-                    } else {
-                      throw data
-                    }
-                    setIsRefreshing(false)
-                  })
-                  .catch((e) => {
-                    const ratelimit = DATE_REGEX.exec(e?.message)?.[0]
-
-                    addToast?.({
-                      title: 'Refresh token failed',
-                      description: ratelimit
-                        ? `This token was recently refreshed. The next available refresh is ${timeTill(
-                            ratelimit
-                          )}.`
-                        : `This token was recently refreshed. Please try again later.`,
-                    })
-
-                    setIsRefreshing(false)
-                    throw e
-                  })
-              }}
-              disabled={isRefreshing}
-              color="gray3"
-              size="xs"
-              css={{ cursor: isRefreshing ? 'not-allowed' : 'pointer' }}
-            >
-              <Box
-                css={{
-                  animation: isRefreshing
-                    ? `${spin} 1s cubic-bezier(0.76, 0.35, 0.2, 0.7) infinite`
-                    : 'none',
-                }}
-              >
-                <FontAwesomeIcon icon={faRefresh} width={16} height={16} />
-              </Box>
-            </Button>*/}
               </Flex>
               <Flex align="center" css={{ gap: '$2' }}>
                 <Text
