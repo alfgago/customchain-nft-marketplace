@@ -131,3 +131,4 @@ export const GradientBackgroundStyles = styled.div`
     }
   }
 `
+export default  GradientBackgroundStyles

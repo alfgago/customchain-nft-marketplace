@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 import { DEVICE, COLORS } from "utils/variables"
 
-export const FooterStyles = styled.footer`
+const FooterStyles = styled.footer`
   position: relative;
   width: 100%;
   line-height: ${60 / 16}rem;
@@ -103,3 +103,4 @@ position: relative;
   }
 `
 
+export default FooterStyles

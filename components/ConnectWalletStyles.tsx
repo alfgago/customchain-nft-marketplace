@@ -12,3 +12,5 @@ export const ConnectWalletStyles = styled.div`
         }
   }
 `
+
+export default ConnectWalletStyles

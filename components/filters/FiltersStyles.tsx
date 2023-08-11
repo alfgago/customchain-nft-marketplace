@@ -229,3 +229,5 @@ export const CommonPill = styled.span`
     }
   }
 `
+
+export default FiltersStyles

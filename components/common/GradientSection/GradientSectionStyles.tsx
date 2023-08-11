@@ -90,3 +90,4 @@ export const GradientSectionStyles = styled.div`
   }
 
 `
+export default GradientSectionStyles

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { DEVICE, COLORS } from 'utils/variables'
 
-export const IndexStyles = styled.section`
+const IndexStyles = styled.section`
   .paginationButton {
     width: 53px;
     height: 53px;
@@ -18,3 +18,5 @@ export const IndexStyles = styled.section`
     color: #ffff;
   }
 `
+
+export default IndexStyles

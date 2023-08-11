@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 import { DEVICE, COLORS } from "utils/variables"
 
-export const  GlobalSearchStyles = styled.div`
+const  GlobalSearchStyles = styled.div`
 input {
     background: transparent;
     border: 2px solid rgb(255, 255, 255);
@@ -22,3 +22,5 @@ input {
     color: #ffff;
 }
 `
+
+export default GlobalSearchStyles

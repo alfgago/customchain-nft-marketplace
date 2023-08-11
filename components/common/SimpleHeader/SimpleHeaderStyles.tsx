@@ -30,3 +30,4 @@ export const SimpleHeaderStyles = styled.section<Props>`
     right: -18px;
   }
 `
+export default SimpleHeaderStyles
