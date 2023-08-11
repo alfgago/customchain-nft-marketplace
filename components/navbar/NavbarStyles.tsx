@@ -6,7 +6,7 @@ export interface Props {
   hasColor: boolean
 }
 
-const NavbarStyles = styled.section<Props>`
+export const NavbarStyles = styled.section<Props>`
   position: fixed;
   width: 100%;
   top: 0;
