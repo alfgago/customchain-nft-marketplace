@@ -65,59 +65,12 @@ const companySectionLinks = [
 
 export const Footer = () => {
   return (
-   /* <Flex
-      justify="between"
-      css={{
-        borderTop: '1px solid $gray7',
-        borderStyle: 'solid',
-        pt: '$5',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        gap: 36,
-        '@bp600': {
-          flexDirection: 'row',
-          gap: 0,
-        },
-      }}
-    >
-      <Flex css={{ gap: 80, '@bp600': { gap: 136 } }}>
-        <Flex direction="column">
-          <SectionTitle title="Developers" />
-          {developerSectionLinks.map((props) => (
-            <SectionLink key={props.name} {...props} />
-          ))}
-        </Flex>
-        <Flex direction="column">
-          <SectionTitle title="Company" />
-          {companySectionLinks.map((props) => (
-            <SectionLink key={props.name} {...props} />
-          ))}
-        </Flex>
-      </Flex>
-      <Flex
-        direction="column"
-        css={{ alignItems: 'flex-start', '@bp600': { alignItems: 'flex-end' } }}
-      >
-        <SectionTitle title="Join Reservoir Community" />
-        <Flex css={{ gap: '$4', mt: 16 }}>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://twitter.com/reservoir0x"
-          >
-            <Button size="xs" color="gray3">
-              <FontAwesomeIcon icon={faTwitter} width={14} height={14} />
-            </Button>
-          </a>
-        </Flex>
-      </Flex>
-    </Flex> */
     <FooterStyles>
     <section className="footer">
       <div className="content">
         <Link href="/">
           <img
-            src="LongHorizontalLogo.svg"
+            src="../LongHorizontalLogo.svg"
             alt="plusOne-horizontal"
             className="watermark-logo"
           />

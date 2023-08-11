@@ -309,15 +309,6 @@ const GlobalSearch = forwardRef<
             transform: 'translate(0, -50%)',
           }}
         >
-          {/*<Text
-            css={{
-              color: '$gray9',
-              display: 'none',
-              '@bp1100': { display: 'block' },
-            }}
-          >
-            ⌘K
-          </Text>*/}
         </Box>
       )}
       <Input
