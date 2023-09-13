@@ -65,6 +65,7 @@ export default [
     collectionSetId: process.env.NEXT_PUBLIC_POLYGON_COLLECTION_SET_ID,
     community: process.env.NEXT_PUBLIC_POLYGON_COMMUNITY,
   },
+  /*
   {
     ...arbitrum,
     name: 'Arbitrum',
@@ -87,6 +88,7 @@ export default [
     apiKey: process.env.OPTIMISM_RESERVOIR_API_KEY,
     coingeckoId: 'optimism',
   },
+  */
   {
     ...goerli,
     lightIconUrl: '/icons/goerli-icon-dark.svg',

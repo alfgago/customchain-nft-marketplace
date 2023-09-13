@@ -226,7 +226,7 @@ type ChainCollections = Record<string, CollectionSchema>
 
 export const getStaticProps: GetStaticProps<{
   ssr: {
-    collections: ChainCollections
+    collections: 
   }
 }> = async () => {
   let collectionQuery: paths['/collections/v5']['get']['parameters']['query'] =
