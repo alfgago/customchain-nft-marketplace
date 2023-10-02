@@ -45,7 +45,6 @@ export default async function handler(req: Request) {
         'x-api-key': apiKey || '',
       },
     }
-
     const query = { ...queryParams }
     if (collectionSetId) {
       query.collectionsSetId = collectionSetId

@@ -18,6 +18,7 @@ const fetcher = async (
     headers,
     ...data,
   })
+  console.log(path.href)
   const json = await response.json()
 
   return { data: json, response }
