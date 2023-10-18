@@ -1,4 +1,6 @@
 import { setParams } from '@reservoir0x/reservoir-sdk'
+import NodeCache from "node-cache"
+const cache = new NodeCache({ stdTTL: 5 }) // cache for 2 seconds
 
 const fetcher = async (
   url: string,
@@ -10,23 +12,30 @@ const fetcher = async (
   if (process.env.NEXT_PUBLIC_RESERVOIR_API_KEY) {
     headers.set('x-api-key', process.env.NEXT_PUBLIC_RESERVOIR_API_KEY)
   }
+
+  const path = new URL(url)
+  setParams(path, params)
+  const cached = cache.get(path.href)
+  if(cached) {
+    return cached
+  }
   
   const collectionSetIdRes = await fetch(
     'http://staging.plusonemusic.io/api/contracts/get-collection-set'
   )
   const collectionSetIdResData = await collectionSetIdRes.json()
-  params.collectionsSetId = collectionSetIdResData.collectionsSetId
+  const collectionsSetId = collectionSetIdResData.collectionsSetId
 
-  const path = new URL(url)
-  setParams(path, params)
-
-  const response = await fetch(path.href, {
+  const response = await fetch(path.href + "&collectionsSetId=" + collectionsSetId, {
     headers,
     ...data,
   })
   const json = await response.json()
 
-  return { data: json, response }
+  const ret = { data: json, response }
+  cache.set(path.href, ret)
+
+  return ret
 }
 
 export const basicFetcher = async (href: string, options?: RequestInit) => {
