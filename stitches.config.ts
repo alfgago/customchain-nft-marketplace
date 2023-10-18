@@ -108,6 +108,9 @@ export const { createTheme, keyframes, styled, globalCss, getCssText } =
         panelBg: '$gray2',
         panelBorder: 'transparent',
         dropdownBg: 'white',
+
+        p1Blue: 'rgb(20, 21, 255)',
+        p1Purple: 'rgb(145, 10, 226)',
       },
       space: {
         1: '4px',

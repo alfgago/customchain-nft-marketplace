@@ -74,6 +74,8 @@ export const TokenActions: FC<Props> = ({
     '@sm': {
       maxWidth: 250,
     },
+    color: "#fff",
+    backgroundColor: "$p1Purple",
   }
 
   return (

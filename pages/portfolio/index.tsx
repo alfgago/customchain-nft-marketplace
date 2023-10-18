@@ -48,7 +48,7 @@ export type UserToken = ReturnType<typeof useUserTokens>['data'][0]
 const IndexPage: NextPage = () => {
   const { address, isConnected } = useAccount()
 
-  const [activityTypes, setActivityTypes] = useState<ActivityTypes>(['sale'])
+  const [activityTypes, setActivityTypes] = useState<ActivityTypes>([])
   const [activityFiltersOpen, setActivityFiltersOpen] = useState(true)
   const [tokenFiltersOpen, setTokenFiltersOpen] = useState(true)
   const [filterCollection, setFilterCollection] = useState<string | undefined>(

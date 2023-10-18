@@ -481,8 +481,8 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
         css={{
           maxWidth: 1175,
           pb: 100,
-          marginLeft: 110,
-          marginRight: 110,
+          marginLeft: "auto",
+          marginRight:"auto",
           gap: 20,
           flexDirection: 'column',
           alignItems: 'center',
@@ -550,7 +550,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                     <TabsTrigger value="listings">Listings</TabsTrigger>
                     <TabsTrigger value="offers">Offers</TabsTrigger>
                   </TabsListContract>
-                  <TabsContent value="attributes">
+                  <TabsContent value="attributes" css={{ padding: "30px", background: "#f5f5f5" }}>
                     {token?.token?.attributes && (
                       <Grid
                         css={{
@@ -573,12 +573,12 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                       </Grid>
                     )}
                   </TabsContent>
-                  <TabsContent value="info">
+                  <TabsContent value="info" css={{ padding: "30px", background: "#f5f5f5" }}>
                     {collection && (
                       <TokenInfo token={token} collection={collection} />
                     )}
                   </TabsContent>
-                  <TabsContent value="activity" css={{ mr: -15 }}>
+                  <TabsContent value="activity" css={{ mr: -15, padding: "30px", background: "#f5f5f5" }}>
                     {isSmallDevice ? (
                       <MobileActivityFilters
                         activityTypes={activityTypes}
@@ -604,7 +604,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                       activityTypes={activityTypes}
                     />
                   </TabsContent>
-                  <TabsContent value="listings">
+                  <TabsContent value="listings" css={{ padding: "30px", background: "#f5f5f5" }}>
                     <ListingsTable
                       token={`${contract}:${token?.token?.tokenId}`}
                       address={account.address}
@@ -612,7 +612,7 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
                       isOwner={isOwner}
                     />
                   </TabsContent>
-                  <TabsContent value="offers" css={{ mr: -15, width: '100%' }}>
+                  <TabsContent value="offers" css={{ mr: -15, width: '100%', padding: "30px", background: "#f5f5f5" }}>
                     <OffersTable
                       token={`${contract}:${token?.token?.tokenId}`}
                       address={account.address}

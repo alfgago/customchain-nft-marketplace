@@ -72,7 +72,7 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
   const { address } = useAccount()
   const [attributeFiltersOpen, setAttributeFiltersOpen] = useState(false)
   const [activityFiltersOpen, setActivityFiltersOpen] = useState(true)
-  const [activityTypes, setActivityTypes] = useState<ActivityTypes>(['sale'])
+  const [activityTypes, setActivityTypes] = useState<ActivityTypes>([])
   const [initialTokenFallbackData, setInitialTokenFallbackData] = useState(true)
   const isMounted = useMounted()
   const isSmallDevice = useMediaQuery({ maxWidth: 905 }) && isMounted
@@ -203,8 +203,8 @@ const CollectionPage: NextPage<Props> = ({ id, ssr }) => {
                 maxWidth: 1175,
                 pt: 140,
                 pb: 140,
-                marginLeft: 110,
-                marginRight: 110,
+                marginLeft: "auto",
+                marginRight:"auto",
                 '@media(max-width: 960px)': {
                   margin: '0px 34px',
                 },

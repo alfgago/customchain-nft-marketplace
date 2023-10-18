@@ -72,7 +72,7 @@ const IndexPage: NextPage<Props> = ({ address, ssr, ensName }) => {
     HTMLAudioElement | HTMLVideoElement | null
   >()
   const isMounted = useMounted()
-  const [activityTypes, setActivityTypes] = useState<ActivityTypes>(['sale'])
+  const [activityTypes, setActivityTypes] = useState<ActivityTypes>([])
   const marketplaceChain = useMarketplaceChain()
 
   const scrollRef = useRef<HTMLDivElement | null>(null)
