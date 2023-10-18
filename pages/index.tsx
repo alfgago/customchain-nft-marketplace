@@ -192,7 +192,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                 volumeKey={volumeKey}
               />
             )}
-            <Flex justify="center" css={{ flexDirection: 'row' }}>
+            {false && <Flex justify="center" css={{ flexDirection: 'row' }}>
               {arrayPages.map((page: any) => {
                 return (
                   <div style={{ padding: '10px' }}>
@@ -212,7 +212,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                   </div>
                 )
               })}
-            </Flex>
+            </Flex>}
           </Flex>
         </Box>
       </Layout>

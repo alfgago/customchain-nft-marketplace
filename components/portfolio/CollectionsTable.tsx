@@ -327,7 +327,7 @@ const TableHeading = () => (
     </TableCell>
     <TableCell>
       <Text style="subtitle3" color="subtle">
-        Floor Price
+        Floor
       </Text>
     </TableCell>
     <TableCell css={{ display: 'none', '@md': { display: 'grid' } }}>

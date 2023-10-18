@@ -292,7 +292,6 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
             >
               <Box
                 css={{
-                  backgroundColor: '$gray3',
                   borderRadius: 8,
                   width: '100%',
                   height: '100%',

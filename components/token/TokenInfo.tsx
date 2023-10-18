@@ -36,7 +36,6 @@ export const TokenInfo: FC<Props> = ({ token, collection }) => {
     px: '$4',
     py: '$3',
     color: '$gray12',
-    background: '$gray3',
     cursor: 'pointer',
     transition: 'background 0.25s ease-in',
     height: 40,

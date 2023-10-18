@@ -34,6 +34,7 @@ import supportedChains from 'utils/chains'
 import { useMarketplaceChain } from 'hooks'
 import ChainContextProvider from 'context/ChainContextProvider'
 
+import "../styles/globals.scss"
 import "../styles/fonts/stylesheet.css"
 import Navbar from 'components/navbar'
 import { Footer } from 'components/home/Footer'

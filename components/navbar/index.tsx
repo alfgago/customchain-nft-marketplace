@@ -98,7 +98,7 @@ const Navbar = () => {
         paddingLeft: '110px',
         paddingRight: '110px',
         zIndex: 999,
-        background: color ? 'rgb(0, 0, 0)' :'transparent',
+        background: "#111",
         position: 'fixed',
         top: 0,
         left: 0,

@@ -10,6 +10,12 @@ const fetcher = async (
   if (process.env.NEXT_PUBLIC_RESERVOIR_API_KEY) {
     headers.set('x-api-key', process.env.NEXT_PUBLIC_RESERVOIR_API_KEY)
   }
+  
+  const collectionSetIdRes = await fetch(
+    'http://staging.plusonemusic.io/api/contracts/get-collection-set'
+  )
+  const collectionSetIdResData = await collectionSetIdRes.json()
+  params.collectionsSetId = collectionSetIdResData.collectionsSetId
 
   const path = new URL(url)
   setParams(path, params)
@@ -18,7 +24,6 @@ const fetcher = async (
     headers,
     ...data,
   })
-  console.log(path.href)
   const json = await response.json()
 
   return { data: json, response }

@@ -59,12 +59,11 @@ export default ({
         borderRadius: 8,
         overflow: 'hidden',
         //background: '$neutralBgSubtle',
-        backgroundColor:'#F0F0F0',
         $$shadowColor: '$colors$panelShadow',
         boxShadow: '0 8px 12px 0px $$shadowColor',
         position: 'relative',
         '&:hover > a > div > img': {
-          transform: 'scale(1.1)',
+          transform: 'scale(1.05)',
         },
         '@sm': {
           '&:hover .token-button-container': {

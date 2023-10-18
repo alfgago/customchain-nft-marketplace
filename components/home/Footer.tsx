@@ -70,7 +70,7 @@ export const Footer = () => {
       <div className="content">
         <Link href="/">
           <img
-            src="../LongHorizontalLogo.svg"
+            src="https://staging.plusonemusic.io/assets/img/long-logo.svg"
             alt="plusOne-horizontal"
             className="watermark-logo"
           />

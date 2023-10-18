@@ -303,7 +303,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
   }
 }
 
-const headings = ['Artist', 'Collection', 'Volume', 'Floor Price', 'Top Offer']
+const headings = ['Artist', 'Passes', 'Volume', 'Floor', 'Top Offer']
 
 const TableHeading = () => (
   <HeaderRow

@@ -47,7 +47,7 @@ export default async function handler(req: Request) {
     }
     const query = { ...queryParams }
     if (collectionSetId) {
-      query.collectionsSetId = collectionSetId
+      // query.collectionsSetId = collectionSetId
     } else if (community) {
       query.community = community
     }

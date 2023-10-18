@@ -25,32 +25,6 @@ body {
   padding: 0 !important;
 }
 
-section {
-  max-width: 100%;
-  padding: 4rem 0;
-  .content {
-    position: relative;
-    margin: auto;
-    width: 100%;
-    max-width: 90rem;
-    padding: 0 2rem;
-
-    &.full {
-      margin: auto;
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-
-  @media screen and (min-width: 1080px) {
-    max-width: 100%;
-    padding: 7rem 0;
-    .content {
-      padding: 0 4rem;
-    }
-  }
-}
-
 .btn {
   display: inline-block;
   font-size: 1.4rem;

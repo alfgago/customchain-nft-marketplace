@@ -143,7 +143,6 @@ export const MobileActivityFilters: FC<Props> = ({
                 css={{
                   height: '24px',
                   width: '24px',
-                  backgroundColor: '$gray3',
                   borderRadius: '100%',
                   mr: '$3',
                 }}
@@ -172,7 +171,6 @@ export const MobileActivityFilters: FC<Props> = ({
                 height: '44px',
                 alignItems: 'center',
                 borderRadius: 8,
-                backgroundColor: '$gray3',
                 color: '$gray12',
                 '&:hover': {
                   backgroundColor: '$gray4',
