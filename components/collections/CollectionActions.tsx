@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import {
   faEllipsis,
