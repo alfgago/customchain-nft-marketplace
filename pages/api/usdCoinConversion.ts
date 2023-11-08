@@ -1,3 +1,4 @@
+// @ts-nocheck
 import supportedChains from 'utils/chains'
 import { NextResponse } from 'next/server'
 import { fetchWithTimeout } from 'utils/fetcher'

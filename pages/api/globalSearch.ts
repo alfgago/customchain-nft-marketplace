@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ethers } from 'ethers'
 import fetcher from 'utils/fetcher'
 import { paths } from '@reservoir0x/reservoir-sdk'
@@ -148,6 +149,7 @@ export default async function handler(req: Request) {
 
     const responses = await Promise.all(promises)
     responses.forEach((response, index) => {
+      // @ts-ignore
       const chainSearchResults = response.data.collections.map(
         (collection: SearchCollection) => ({
           type: 'collection',

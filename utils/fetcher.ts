@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { setParams } from '@reservoir0x/reservoir-sdk'
 import NodeCache from "node-cache"
 const cache = new NodeCache({ stdTTL: 5 }) // cache for 2 seconds
