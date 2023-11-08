@@ -120,8 +120,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
     <IndexStyles>
       <Layout>
         <Head />
-        {isDisconnected && (
-          <div>
+        <div>
             <SimpleHeader textAlign="left">
               <Flex
                 direction="column"
@@ -168,7 +167,6 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
               <Filters />
             </GradientSection>
           </div>
-        )}
         <Box
           css={{
             //p: 24,

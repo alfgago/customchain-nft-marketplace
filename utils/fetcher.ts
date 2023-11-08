@@ -22,7 +22,7 @@ const fetcher = async (
   }
   
   const collectionSetIdRes = await fetch(
-    'http://staging.plusonemusic.io/api/contracts/get-collection-set'
+    'https://staging.plusonemusic.io/api/contracts/get-collection-set'
   )
   const collectionSetIdResData = await collectionSetIdRes.json()
   const collectionsSetId = collectionSetIdResData.collectionsSetId

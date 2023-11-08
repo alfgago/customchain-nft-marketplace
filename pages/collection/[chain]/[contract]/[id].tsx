@@ -273,8 +273,8 @@ const IndexPage: NextPage<Props> = ({ id, collectionId, ssr }) => {
               css={{
                 maxWidth: '100%',
                 //flex: 1,
-                width: 390,
-                height: isSmallDevice ? 320 : 410,
+                width: 250,
+                height: 250,
                 //width: '100%',
                //'@md': { maxHeight: 320 },
                 position: 'relative',
