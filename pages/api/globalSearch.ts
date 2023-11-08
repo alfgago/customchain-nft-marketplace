@@ -67,6 +67,7 @@ export default async function handler(req: Request) {
           'x-api-key': apiKey || '',
         },
       }
+      // @ts-ignore
       const { data } = await fetcher(
         `${reservoirBaseUrl}/collections/v5?contract=${query}&limit=6`,
         {},
