@@ -70,7 +70,7 @@ const Navbar = () => {
     >
       <Box css={{ flex: 1 }}>
         <Flex align="center">
-          <Link href="/">
+          <Link href="https://staging.plusonemusic.io">
             <Box css={{ width: 64, cursor: 'pointer' }}>
             <Image
                 src="/plusoneLogo.svg"
@@ -109,7 +109,7 @@ const Navbar = () => {
     >
       <Box css={{ flex: 1 }}>
         <Flex align="center">
-          <Link href="/">
+          <Link  href="https://staging.plusonemusic.io">
             <Box css={{ width: 112, cursor: 'pointer' }}>
               {theme == 'dark' ? (
                 <Image

@@ -126,7 +126,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                 direction="column"
                 align="start"
                 css={{
-                  maxWidth: 728,
+                  maxWidth: 1200,
                   p: '90px 110px',
                   '@media(max-width: 960px)': {
                     p: '90px 34px',
@@ -134,7 +134,7 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                 }}
               >
                 <Text
-                  style="h3"
+                  style="h1"
                   css={{
                     mb: 24,
                     mt: 44,
@@ -145,22 +145,9 @@ const IndexPage: NextPage<Props> = ({ ssr }) => {
                     color: 'white',
                   }}
                 >
-                  Marketplace
+                  Trending Passes
                 </Text>
-                <Text
-                  style="body1"
-                  css={{
-                    mb: 48,
-                    width: '50%',
-                    fontWeight: 600,
-                    fontSize: isSmallDevice ? 22 : 32,
-                    lineHeight: '35px',
-                    color: 'white',
-                  }}
-                >
-                  Buy, sell, and win guest list access from your favorite
-                  artists
-                </Text>
+                
               </Flex>
             </SimpleHeader>
             <GradientSection>

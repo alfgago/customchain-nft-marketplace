@@ -56,7 +56,7 @@ export const CollectionRankingsTable: FC<Props> = ({
               css={{ mb: '$4', '@md': { display: 'none' } }}
             >
               <Text style="subtitle3" color="subtle">
-                Collection
+                Pass
               </Text>
               <Text style="subtitle3" color="subtle">
                 Volume
@@ -303,7 +303,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
   }
 }
 
-const headings = ['Artist', 'Passes', 'Volume', 'Floor', 'Top Offer']
+const headings = ['Artist + Pass', '', 'Volume', 'Floor', 'Top Offer']
 
 const TableHeading = () => (
   <HeaderRow

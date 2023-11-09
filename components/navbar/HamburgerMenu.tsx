@@ -65,7 +65,7 @@ const HamburgerMenu = () => {
           align="center"
           justify="between"
         >
-          <Link href="/">
+          <Link href="https://staging.plusonemusic.io">
             <Box css={{ width: 34, cursor: 'pointer' }}>
               <Image
                 src="/plusoneLogo.svg"
