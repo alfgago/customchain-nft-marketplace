@@ -14,7 +14,7 @@ type Props = {
  * @param description - The description of the page.
  */
 export const Head: FC<Props> = ({
-  ogImage = 'favicon.io',
+  ogImage = '',
   title = 'Marketplace - PlusOne',
   description = 'Reservoir Market is an open source NFT marketplace built with Reservoir.',
 }) => {
