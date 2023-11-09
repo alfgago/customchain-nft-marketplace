@@ -200,7 +200,7 @@ const GlobalSearch = forwardRef<
     console.log(debouncedSearch)
     const getSearchResults = async () => {
       setSearching(true)
-      let res = await fetch(`/api/globalSearch?query=${debouncedSearch}`).then(
+      let res = await fetch(process.env.NEXT_PUBLIC_HOST_URL + `/api/globalSearch?query=${debouncedSearch}`).then(
         (res) => res.json()
       )
 
