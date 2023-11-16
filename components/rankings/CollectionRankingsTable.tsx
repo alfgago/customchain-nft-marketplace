@@ -26,7 +26,7 @@ type Props = {
   volumeKey: '1day' | '7day' | '30day' | 'allTime'
 }
 
-const desktopTemplateColumns = '1.5fr 1.95fr repeat(3, 0.4fr)'
+const desktopTemplateColumns = '2fr repeat(3, 1fr)';
 
 export const CollectionRankingsTable: FC<Props> = ({
   collections,
@@ -43,10 +43,10 @@ export const CollectionRankingsTable: FC<Props> = ({
           align="center"
           css={{ py: '$6', gap: '$4', width: '100%' }}
         >
-          <Text css={{ color: '$gray11' }}>
+          <Text css={{ color: '#000' }}>
             <FontAwesomeIcon icon={faMagnifyingGlass} size="2xl" />
           </Text>
-          <Text css={{ color: '$gray11' }}>No collections found</Text>
+          <Text css={{ color: '#000' }}>No collections found</Text>
         </Flex>
       ) : (
         <Flex direction="column" css={{ width: '100%', pb: '$2' }}>
@@ -98,6 +98,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
 }) => {
   const { routePrefix } = useMarketplaceChain()
   const isSmallDevice = useMediaQuery({ maxWidth: 900 })
+  console.log(collection )
 
   if (isSmallDevice) {
     return (
@@ -107,7 +108,8 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
         key={collection.id}
       >
         <Flex align="center" css={{ cursor: 'pointer' }}>
-          <Text css={{ mr: '$4', width: 15 }} style="subtitle3">
+          <Text css={{ mr: '$4', width: 15 }} style="subtitle3" 
+          className="trending-rank">
             {rank}
           </Text>
           <Img
@@ -136,7 +138,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
               />
             </Flex>
             <Flex align="center">
-              <Text css={{ mr: '$1', color: '$gray11' }} style="body3">
+              <Text css={{ mr: '$1', color: '#000' }} style="body3">
                 Floor
               </Text>
               <FormatCryptoCurrency
@@ -191,7 +193,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
                 width: '100$',
               }}
             >
-              <Text css={{ mr: '$2', width: 15 }} style="subtitle3">
+              <Text css={{ mr: '$2', width: 50 }} style="subtitle3" className={"trending-rank rank-"+ rank}>
                 {rank}
               </Text>
               <Img
@@ -215,6 +217,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
                 }}
                 style="subtitle1"
                 ellipsify
+                className='collection-name'
               >
                 {collection?.name}
               </Text>
@@ -225,34 +228,6 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
               />
             </Flex>
           </Link>
-        </TableCell>
-        <TableCell>
-          <Flex
-            css={{
-              gap: '$3',
-              minWidth: 0,
-            }}
-          >
-            {collection?.sampleImages?.map((image, i) =>
-              image ? (
-                <img
-                  key={image + i}
-                  src={image}
-                  style={{
-                    borderRadius: 8,
-                    width: 87.43,
-                    height: 92,
-                    objectFit: 'cover',
-                  }}
-                  onError={(
-                    e: React.SyntheticEvent<HTMLImageElement, Event>
-                  ) => {
-                    e.currentTarget.style.visibility = 'hidden'
-                  }}
-                />
-              ) : null
-            )}
-          </Flex>
         </TableCell>
         <TableCell>
           <Flex
@@ -303,7 +278,7 @@ const RankingsTableRow: FC<RankingsTableRowProps> = ({
   }
 }
 
-const headings = ['Artist + Pass', '', 'Volume', 'Floor', 'Top Offer']
+const headings = ['Artist + Pass', 'Volume', 'Floor', 'Top Offer']
 
 const TableHeading = () => (
   <HeaderRow

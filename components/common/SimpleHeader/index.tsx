@@ -23,11 +23,7 @@ const SimpleHeader = ({
         {title && <h1>{title}</h1>}
         {children}
       </div>
-      {!isSmallDevice && <img
-        src="/LongVerticalLogo.svg"
-        alt="plusOne-vertical"
-        className="vertical-logo"
-      />}
+      
     </SimpleHeaderStyles>
   )
 }
